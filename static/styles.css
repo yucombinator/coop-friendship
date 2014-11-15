@@ -3,129 +3,101 @@
  */
 
 /* Links */
-a,
-a:focus,
-a:hover {
-  color: #fff;
+a, a:focus, a:hover {
+	color: #fff;
 }
-
 /* Custom default button */
-.btn-default,
-.btn-default:hover,
-.btn-default:focus {
-  color: #333;
-  text-shadow: none; /* Prevent inheritence from `body` */
-  background-color: #fff;
-  border: 1px solid #fff;
+.btn-default, .btn-default:hover, .btn-default:focus {
+	color: #333;
+	text-shadow: none; /* Prevent inheritence from `body` */
+	background-color: #fff;
+	border: 1px solid #fff;
 }
-
-
 /*
  * Base structure
  */
 
-html,
-body {
-  height: 100%;
-  background-color: #333;
+html, body {
+	height: 100%;
+	background-color: #333;
 }
 body {
-  color: #fff;
-  text-align: center;
-  /*text-shadow: 0 1px 1px rgba(0,0,0,.5);*/
+	color: #fff;
+	text-align: center;/*text-shadow: 0 1px 1px rgba(0,0,0,.5);*/
 }
-
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
-  display: table;
-  width: 100%;
-  height: 100%; /* For at least Firefox */
-  min-height: 100%;
-  -webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-          box-shadow: inset 0 0 100px rgba(0,0,0,.5);
-  padding-top:17%;
+	display: table;
+	width: 100%;
+	height: 100%; /* For at least Firefox */
+	min-height: 100%;
+	-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+	box-shadow: inset 0 0 100px rgba(0,0,0,.5);
+	padding-top: 17%;
 }
 .site-wrapper-inner {
-  display: table-cell;
+	display: table-cell;
 }
 .cover-container {
-  margin-right: auto;
-  margin-left: auto;
+	margin-right: auto;
+	margin-left: auto;
 }
-
 /* Padding for spacing */
 .inner {
-  padding: 30px;
+	padding: 30px;
 }
-
-
 /*
  * Header
  */
 .masthead-brand {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size:3em;
-    font-family: 'Raleway', sans-serif;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	font-size: 3em;
+	font-family: 'Raleway', sans-serif;
 }
-
 .masthead-nav > li {
-  display: inline-block;
+	display: inline-block;
 }
 .masthead-nav > li + li {
-  margin-left: 20px;
+	margin-left: 20px;
 }
 .masthead-nav > li > a {
-  padding-right: 0;
-  padding-left: 0;
-  font-size: 16px;
-  font-weight: bold;
-  color: #fff; /* IE8 proofing */
-  color: rgba(255,255,255,.75);
-  border-bottom: 2px solid transparent;
+	padding-right: 0;
+	padding-left: 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #fff; /* IE8 proofing */
+	color: rgba(255,255,255,.75);
+	border-bottom: 2px solid transparent;
 }
-.masthead-nav > li > a:hover,
-.masthead-nav > li > a:focus {
-  background-color: transparent;
-  border-bottom-color: #a9a9a9;
-  border-bottom-color: rgba(255,255,255,.25);
+.masthead-nav > li > a:hover, .masthead-nav > li > a:focus {
+	background-color: transparent;
+	border-bottom-color: #a9a9a9;
+	border-bottom-color: rgba(255,255,255,.25);
 }
-.masthead-nav > .active > a,
-.masthead-nav > .active > a:hover,
-.masthead-nav > .active > a:focus {
-  color: #fff;
-  border-bottom-color: #fff;
+.masthead-nav > .active > a, .masthead-nav > .active > a:hover, .masthead-nav > .active > a:focus {
+	color: #fff;
+	border-bottom-color: #fff;
 }
-
-@media (min-width: 768px) {
-  .masthead-brand {
-    float: left;
-  }
-  .masthead-nav {
-    float: right;
-  }
-}
-
 /*
  * Cover
  */
 
 .cover {
-  padding: 0 20px;
-  width:100%;
+	padding: 0 20px;
+	width: 100%;
 }
 .cover .btn-lg {
-  padding: 10px 20px;
-  font-weight: bold;
+	padding: 10px 20px;
+	font-weight: bold;
 }
-
 /*
  * Footer
  */
 
 .mastfoot {
-  color: #999; /* IE8 proofing */
-  color: rgba(255,255,255,.5);
+	color: #999; /* IE8 proofing */
+	color: rgba(255,255,255,.5);
 }
 
 
@@ -136,12 +108,12 @@ body {
 @media (min-width: 768px) {
   /* Pull out the header and footer */
   .masthead {
-    /*position: fixed;
-      top: 0;*/
+      position: fixed;
+      top: 0;
   }
   .mastfoot {
-  /*  position: fixed;
-      bottom: 0; */
+      position: fixed;
+      bottom: 0;
   }
   /* Handle the widths */
   .masthead,
@@ -149,74 +121,118 @@ body {
   .cover-container {
     width: 75%; /* Must be percentage or pixels for horizontal alignment */
   }
+/* Pull out the header and footer */
+.masthead-brand {
+	float: left;
 }
-
-@media (min-width: 992px) {
-  .masthead,
-  .mastfoot,
-  .cover-container{
-    width: 75%;
-  }
+.masthead-nav {
+	float: right;
+}
+.masthead {
+	position: fixed;
+	top: 0;
+}
+.mastfoot {
+	position: fixed;
+	bottom: 0;
+}
+/* Handle the widths */
+.masthead,  .mastfoot,  .cover-container {
+	width: 100%; /* Must be percentage or pixels for horizontal alignment */
+}
+.mine_program, .your_program,  .mine_stream, .your_stream,  .mine_term, .your_term {
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	clear: both;
+}
+.form-control{
+	margin-top:1%;
+}
+.row_mine, .row_friend {
+	width: 100%;
+	padding: 1%;
+	margin: auto;
+	margin-top:3%;
+	position: relative;
+	float:none;
+}
+}
+ @media (min-width: 992px) {
+.masthead,  .mastfoot,  .cover-container {
+	width: 75%;
+}
+.mine_program, .your_program,  .mine_stream, .your_stream,  .mine_term, .your_term {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+	clear: both;
+	float: none;
+}
+.row_mine, .row_friend {
+	width: 50%;
+	padding: 1%;
+	margin: auto;
+	position: relative;
+}
+.row_mine {
+	float: left;
+}
+.row_friend {
+	float: right;
+}
+.mine_program, .mine_stream, .mine_term {
+	float: right;
+	margin-right: 5%;
+}
+.your_program, .your_stream, .your_term {
+	float: left;
+	margin-left: 5%;
+}
 }
 
 
 /*New CSS design*/
-.form-control{
-	height:60px;
-	border-radius:20px;
-}
-.row_mine, .row_friend{
-	width:50%;
-	padding:5px;
-	margin:auto;
-	position:relative;
+.form-control {
+	height: 60px;
+	border-radius: 20px;
 }
 
-.row_mine{
-	float:left;
-
+.content, .table_content {
+	margin: 10px;
+	width: inherit;
 }
-.row_friend{
-	float:right;
+.content {
+	-webkit-transition: opacity 1s ease-in;
 }
-
-.content{
-	margin:10px;
-	width:inherit;
+.content.fade-out {
+	opacity: 0;
 }
-.result{
-	opacity:0;
+.content.fade-in {
+	opacity: 1;
 }
-.submit{
-	clear:both;
-	margin-top:60px;
-	font-size:24px;
-	width:25%;
-	border-radius:30px;
-}
-.submit_row{
-	position:relative;
-	clear:both;
-}
-.mine_program,.your_program,
-.mine_stream, .your_stream,
-.mine_term, .your_term{
-	margin-top:5px;
-	margin-bottom:5px;
-	margin-left:auto;
-	margin-right:auto;
-	width:70%;
-	clear:both;
-	float:none;
+.submit {
+	clear: both;
+	margin-top: 15%;
+	font-size: 1.5em;
+	width: auto;
+	border-radius: 30px;
+	padding-left: 10%;
+	padding-right: 10%;
 }
 
-.mine_program,.mine_stream,.mine_term{
-	float:right;
-	margin-right:10px;
+.submit_row {
+	position: relative;
+	clear: both;
 }
-.your_program,.your_stream,.your_term{
-	float:left;
-	margin-left:10px;
+.proletariat {
+	margin-left: auto;
+	margin-right: auto;
+}
+td {
+	padding: 3px;
 }
 
 /*spiffy card stuff*/
