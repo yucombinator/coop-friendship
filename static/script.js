@@ -80,7 +80,7 @@ app.config(function($interpolateProvider) {
             if(random%2 == 0)
                 return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
             else
-                return "It's not you. It's me. You're only on stream only " + String(percentage) + "% of the time.";
+                return "It's not you. It's me. You're only on stream " + String(percentage) + "% of the time.";
         }
         else if (percentage >= 50){
             if(random%2 == 0)
