@@ -61,8 +61,8 @@ app.config(function($interpolateProvider) {
     });
     
     $scope.styleRow = function(result){
-        if(result == "On Campus") return {'background-color':'#F0FFC9'};
-        else return {'background-color':'#F9D423'};
+        if(result == "On Campus") return {'background-color':'#CFFF19'};
+        else return {'background-color':'#FC913A'};
     };
     // process the form
     $scope.processForm = function() {
