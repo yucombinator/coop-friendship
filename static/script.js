@@ -84,14 +84,16 @@ app.config(function($interpolateProvider) {
                 $scope.results = data[1];
                 console.log($scope.results);
 				
+			function fade(btnElement){
 			if (btnElement.value == "fade") {
                 document.getElementById("cont").className = "fade-out";
-                btnElement.value = "Fade In";
+                btnElement.value = "fade_out";
             }
             else {
                 document.getElementById("cont").className = "fade-in";
-                btnElement.value = "Fade Out";
+                btnElement.value = "fade";
             }
+	}
                 
             });
     };
