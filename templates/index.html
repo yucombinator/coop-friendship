@@ -7,6 +7,17 @@
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script src="/static/script.js"></script>
     <script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <script type="text/javascript">
+	function fadeOut(btnElement){
+			if (btnElement.value == "true") {
+                document.getElementById("cont").className = "fade-out";
+				btnElement.value = "false";
+            }
+	}
+	function fadeIn(btnElement){
+                document.getElementById("cont").className = "fade-in";
+	}
+    </script>
     <link href='http://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
     </head>
 
@@ -45,7 +56,7 @@
           </tr>
         </tbody>
       </table>
-      <button type="button" class="btn btn-primary submit" ng-click="results = null" value="fade" onClick="fade(this);"> MY EYES </button>
+      <button type="button" class="btn btn-primary submit" ng-click="results = null" onClick="fadeIn(this);"> MY EYES </button>
 
     </div>
       <form id="form" role="form" class="inner cover card" ng-show="results == null">
@@ -98,7 +109,7 @@
               <!-- Submit -->
               <div class="row submit_row">
             <div class="col-md-12">
-                  <button type="button" class="btn btn-primary submit" ng-click="processForm()" value="fade" onClick="fade(this);"> Can we be friends? </button>
+                  <button type="button" class="btn btn-primary submit" ng-click="processForm()" value="{[{fade}]}" onClick="fadeOut(this);">Can we be friends? </button>
                 </div>
           </div>
         </div>
