@@ -68,7 +68,7 @@ app.config(function($interpolateProvider) {
 
         for (i = 0;  i < result.length; i++){
             total++;
-            if (result[i]=="On Campus"){
+            if (result[i]=="Yes"){
                 on++;
             }
         }
