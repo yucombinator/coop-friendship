@@ -71,7 +71,18 @@ app.config(function($interpolateProvider) {
             }
         }
         percentage = on/total*100;
-        return Math.round(percentage);
+        percentage = Math.round(percentage);
+
+
+        if (percentage < 30){
+            return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
+        }
+        else if (percentage >= 50){
+            return "BFFs? Maybe. Don't screw this one up. You'll see them for about" + String(percentage) + "% of the next 5 years.";
+        }
+        else{
+            return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
+        }
     };
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
