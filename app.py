@@ -1,7 +1,10 @@
 import json
 from flask import Flask,render_template, request
 import os
+import logic
 import programs as program_helper
+
+
 app = Flask(__name__)
 programs = []
 import csv
@@ -27,10 +30,16 @@ def postSubmit():
     friend_stream = post.get('friend_stream')
     friend_term = post.get('friend_term')
     friend_faculty = post.get('friend_faculty')
-    res = logic.takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program,
-                          friend_term, my_stream, friend_stream)
-    app.logger.debug(res)
-    response = json.dumps({'status': "OK"}, sort_keys=True, indent=4, separators=(',', ': '))
+
+    dict = logic.takeInput(my_faculty, my_program, my_term,friend_faculty,
+                           friend_program, friend_term,my_stream,friend_stream)
+    app.logger.debug(dict)
+
+    response = json.dumps(['response',{'dates':dict["terms"],
+                                       'my_array':dict["array1"],
+                                       'friend_array':dict["array2"],
+                                       'result':dict["results"]}],
+                          sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
 def parseColor(param):
