@@ -22,7 +22,6 @@ html, body {
 	background-color: #333;
 }
 body {
-	color: #fff;
 	text-align: center;/*text-shadow: 0 1px 1px rgba(0,0,0,.5);*/
 }
 /* Extra markup and styles for table-esque vertical and horizontal centering */
@@ -54,6 +53,7 @@ body {
 	margin-bottom: 10px;
 	font-size: 3em;
 	font-family: 'Raleway', sans-serif;
+    color:white;
 }
 .masthead-nav > li {
 	display: inline-block;
@@ -230,6 +230,9 @@ body {
 .proletariat {
 	margin-left: auto;
 	margin-right: auto;
+}
+.proletariat:first-letter {
+    text-transform:capitalize;
 }
 td {
 	padding: 3px;
