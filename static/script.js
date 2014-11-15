@@ -18,6 +18,8 @@ app.config(function($interpolateProvider) {
     });
   }; */
     $scope.test_programs = [];
+    $scope.my_info = [];
+    $scope.friend_info = [];
     $scope.getStreamSuggestion = function(model){
             $http({
             url: '/postSuggestion',
@@ -56,7 +58,7 @@ app.config(function($interpolateProvider) {
     };   
     $http.get('/getPrograms')
        .then(function(res){
-          $scope.test_programs = res.data;
+          $scope.programs_list = res.data;
         //console.log(res.data);
     });
 
@@ -84,6 +86,7 @@ app.config(function($interpolateProvider) {
             return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
         }
     };
+    $scope.fade = "false";
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};
@@ -107,17 +110,7 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
-				
-			function fade(btnElement){
-			if (btnElement.value == "fade") {
-                document.getElementById("cont").className = "fade-out";
-                btnElement.value = "fade_out";
-            }
-            else {
-                document.getElementById("cont").className = "fade-in";
-                btnElement.value = "fade";
-            }
-	}
+				$scope.fade = "true"
                 
             });
     };
