@@ -24,8 +24,6 @@ def postSubmit():
     response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
-<<<<<<< HEAD
-
 def parseColor(param):
     if param == "science":
         return "blue"
@@ -42,14 +40,12 @@ def parseColor(param):
     else:
         return "black"
 
-=======
 @app.route("/postSuggestion", methods=['POST'])
 def postSuggestion():
     program = str(request.form['my_program'])
     faculty = str(request.form['my_stream'])
     response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
     return response
->>>>>>> origin/master
 
 if __name__ == "__main__":
     f = open('programs.csv')
