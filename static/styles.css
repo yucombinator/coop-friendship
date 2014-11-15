@@ -269,3 +269,13 @@ td {
 	height:100%;
 	width:inherit;
 }
+
+h1{
+  padding-top: 0px;
+  margin-top: 0px;
+  font-family: Raleway, sans-serif;
+}
+
+h2{
+  font-family: Raleway, sans-serif;
+}
