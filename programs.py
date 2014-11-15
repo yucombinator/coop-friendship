@@ -42,15 +42,15 @@ def mathProgram(program, stream = None):
             return '4'
 
 def detFaculty(faculty):
-    if faculty == "Applied Health Sciences":
+    if faculty == "health":
         return data.AHS
-    elif faculty == "Engineering":
+    elif faculty == "engineering":
         return data.ENG
-    elif faculty == "Science":
+    elif faculty == "science":
         return data.SCI
-    elif faculty == "Math":
+    elif faculty == "math":
         return data.MATH
-    elif faculty == "Arts":
+    elif faculty == "arts":
         return data.ARTS
     else:
         return data.ENV
