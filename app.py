@@ -24,6 +24,13 @@ def postSubmit():
     response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
+@app.route("/postSuggestion", methods=['POST'])
+def postSuggestion():
+    program = str(request.form['my_program'])
+    faculty = str(request.form['my_stream'])
+    response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
+    return response
+
 if __name__ == "__main__":
     f = open('programs.csv')
     csv_f = csv.reader(f)
