@@ -1,7 +1,5 @@
 import programs, datetime
 
-
-
 def generateTerms(length):
     #CREATE ARRAY OF TERMS
     #Keeping track of dates.
@@ -57,7 +55,7 @@ def comparePrograms(array1, array2, term1="1A", term2="1A"):
             "results":results
     }
 
-def takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program, friend_term, my_stream_code = None, friend_stream_code = None):
+def takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program, friend_term, my_stream_code=None, friend_stream_code=None):
     myProgram = programs.findProgram(my_faculty, my_program, my_stream_code)
     friendProgram = programs.findProgram(friend_faculty, friend_program, friend_stream_code)
 
