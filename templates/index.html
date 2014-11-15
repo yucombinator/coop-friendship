@@ -1,41 +1,69 @@
 <!DOCTYPE html>
-<html ng-app="Test">
+<html ng-app="CoopFriend">
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css"href="style.css">
-
-    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
-    <script src="/script.js"></script>
-    <script src="/ngAutocomplete.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href= "/static/style.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
 
 
 </head>
 
 <body>
 
-<div ng-controller="TestCtrl">
+<div class='container-fluid' ng-controller="MainCtrl">
 
 <form id="form" role="form">
+<script type="text/ng-template" id="customTemplate.html">
+  <a style="color:{[{match.model.color}]}">
+      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+  </a>
+</script>
 
-    <div class="form-group move-down">
-        <label for="Autocomplete">Generic Autocomplete</label>
-        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result1" details="details1" options="options1"/>
-    </div>
-    <div>result: {{result}}</div>
+    <!-- Me -->
+      <div class="row">
+        <div class="col-md-6">
+            <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+        </div>
+        <div class="col-md-3" ng-show="my_info.require_stream">
+            <input type="text" ng-model="my_info.stream" ng-enabled="my_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
+        </div>
+      </div>
+    <!-- Friend -->
+      <div class="row">
+        <div class="col-md-6">
+            <input type="text" ng-model="friend_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+        </div>
+        <div class="col-md-3" ng-show="friend_info.require_stream">
+            <input type="text" ng-model="friend_info.stream" ng-enabled="friend_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+        </div>
+        <div class="col-md-3">
+            <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
+        </div>
+      </div>
+    
+        <!-- Submit -->
+      <div class="row">
+        <div class="col-md-6">
+            <button type="button" class="btn btn-primary" ng-click="processForm()">
+                Can we be friends?
+            </button>
+        </div>
+      </div>
+    <pre>Me: {[{my_info | json}]}</pre>
+    <pre>Friend: {[{friend_info | json}]}</pre>
+    <!--
+    <h4>Asynchronous results</h4>
+    <pre>Model: {[{asyncSelected | json}]}</pre>
+    <pre>Model: {[{asyncSelected | json}]}</pre>
+    <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
+    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
 
-    <div class="form-group move-down">
-        <label for="Autocomplete">Autocomplete - Cities in Canada</label>
-        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result2" details="details2" options="options2"/>
-    </div>
-    <div>result: {{result}}</div>
-
-    <div class="form-group move-down">
-        <label for="Autocomplete">Autocomplete - Establishments in the UK</label>
-        <input type="text" id="Autocomplete" class="form-control" ng-autocomplete="result3" details="details3" options="options3"/>
-    </div>
-     <div>result: {{result}}</div>
 </form>
 </div>
 
