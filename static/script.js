@@ -97,8 +97,8 @@ app.config(function($interpolateProvider) {
     };
 
     $scope.styleRow = function(result){
-        if(result == "Yes") return {'background-color':'#99CC00'};
-        else return {'background-color':'#FF4D4D'};
+        if(result == "Yes") return {'background-color':'#CFFF19'};
+        else return {'background-color':'#FC913A'};
     };
     
     // process the form
