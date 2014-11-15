@@ -12,6 +12,10 @@ programs = []
 @app.route("/")
 def home():
     return render_template('index.html')
+
+@app.route("/about.html")
+def about():
+    return render_template("about.html")
 @app.route("/getPrograms")
 def getPrograms():
     response = json.dumps(programs, sort_keys=True, indent=4, separators=(',', ': '))
