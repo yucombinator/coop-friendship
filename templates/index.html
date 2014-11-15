@@ -35,34 +35,38 @@
                 </ul>
               </nav>
             </div>
-          </div>
-          <div class="table_content card" ng-show="results != null">
-            <table class="proletariat table table-hover">
-              <thead>
-                <tr>
-                  <th>Term</th>
-                  <th>You</th>
-                  <th>Your friend</th>
-                  <th>Result</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr ng-repeat="result in results.dates">
-                  <td>{[{result}]}</td>
-                  <td>{[{results.my_array[$index]}]}</td>
-                  <td>{[{results.friend_array[$index]}]}</td>
-                  <td ng-style="styleRow(results.result[$index])">{[{results.result[$index]}]}</td>
-                </tr>
-              </tbody>
-            </table>
-            <button type="button" class="btn btn-primary submit" ng-click="results = null" onClick="fadeIn(this);"> MY EYES </button>
-          </div>
-          <form id="form" role="form" class="inner cover card" ng-show="results == null">
-            <script type="text/ng-template" id="customTemplate.html">
+      </div>
+      <div class="table_content card" ng-show="results != null">
+      <p ng-style = "onStream(results.result)">{[{onStream(results.result)}]}</p>
+      <table class="proletariat table table-hover">
+        <thead>
+          <tr>
+
+            <th>Term</th>
+            <th>You</th>
+            <th>Your friend</th>
+            <th>Result</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="result in results.dates">
+            <td>{[{result}]}</td>
+            <td>{[{results.my_array[$index]}]}</td>
+            <td>{[{results.friend_array[$index]}]}</td>
+            <td ng-style="styleRow(results.result[$index])">{[{results.result[$index]}]}</td>
+          </tr>
+        </tbody>
+      </table>
+      <button type="button" class="btn btn-primary submit" ng-click="results = null" onClick="fadeIn(this);"> MY EYES </button>
+
+    </div>
+      <form id="form" role="form" class="inner cover card" ng-show="results == null">
+        <script type="text/ng-template" id="customTemplate.html">
           <a style="color:{[{match.model.color}]}">
               <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
           </a>
         </script> 
+<<<<<<< HEAD
             
             <!-- Me -->
             <div class="row content" id="cont">
@@ -84,6 +88,15 @@
                       <option value="{[{term}]}" ng-repeat="term in my_info.terms_choices"> 
                     </datalist>
                   </div>
+=======
+        
+        <!-- Me -->
+        <div class="row content" id="cont">
+              <div class=" col-md-6 row row_mine">
+            <div class="col-md-12 mine_program">
+                  <h3 class="masthead-brand"><span style="color:yellow;">YOU</span></h3>
+                  <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
+>>>>>>> origin/master
                 </div>
                 <!-- Friend -->
                 <div class="col-md-6 row row_friend">
@@ -104,8 +117,37 @@
                     </datalist>
                   </div>
                 </div>
+<<<<<<< HEAD
               </div>
               
+=======
+            <div class="col-md-12 mine_term">
+                  <input type="text" id="my_info.term" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control" ng-click="getTermsSuggestion(my_info)" list="mterms">
+                  <datalist id="mterms">
+                <option value="{[{mterm}]}" ng-repeat="mterm in my_info.terms_choices">
+              </datalist>
+                </div>
+          </div>
+              <!-- Friend -->
+              <div class="col-md-6 row row_friend">
+            <div class="col-md-12 your_program">
+                  <h3 class="masthead-brand"><span style="color:yellow;">YOUR FRIEND</span></h3>
+                  <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                </div>
+            <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
+                  <input type="text" ng-model="friend_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(friend_info)" list="fstreams">
+                  <datalist id="fstreams">
+                <option value="{[{stream}]}" ng-repeat="stream in friend_info.stream_choices"> 
+              </datalist>
+                </div>
+            <div class="col-md-12 your_term">
+                  <input type="text" id="friend_info.term" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" ng-click="getTermsSuggestion(friend_info)" list="fterms">
+                  <datalist id="fterms">
+                <option value="{[{fterm}]}" ng-repeat="fterm in friend_info.terms_choices">
+              </datalist>
+                </div>
+          </div>
+>>>>>>> origin/master
               <!-- Submit -->
               <div class="row submit_row">
                 <div class="col-md-12">
