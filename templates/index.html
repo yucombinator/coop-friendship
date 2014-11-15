@@ -42,22 +42,28 @@
                     <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
                 </div>
                 <div class="col-md-3" ng-show="my_info.require_stream">
-                    <input type="text" ng-model="my_info.stream" ng-enabled="my_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                    <input type="text" ng-model="my_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(my_info)" list="mystreams">
+                    <datalist id="mystreams">
+                      <option value="{[{stream}]}" ng-repeat="stream in my_info.stream_choices">
+                    </datalist>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
+                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control">
                 </div>
               </div>
             <!-- Friend -->
               <div class="row">
                 <div class="col-md-6">
-                    <input type="text" ng-model="friend_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                    <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
                 </div>
                 <div class="col-md-3" ng-show="friend_info.require_stream">
-                    <input type="text" ng-model="friend_info.stream" ng-enabled="friend_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                    <input type="text" ng-model="friend_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(friend_info)" list="fstreams">
+                    <datalist id="fstreams">
+                      <option value="{[{stream}]}" ng-repeat="stream in friend_info.stream_choices">
+                    </datalist>
                 </div>
                 <div class="col-md-3">
-                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
+                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" >
 
               </div>
 

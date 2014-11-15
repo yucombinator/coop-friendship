@@ -9,16 +9,35 @@ app.config(function($interpolateProvider) {
 .controller('MainCtrl', function($scope, $http) {
 
   $scope.selected = undefined;
-  // Any function returning a promise object can be used to load values asynchronously
+  /* Any function returning a promise object can be used to load values asynchronously
   $scope.getStreamSuggestion = function(val) {
-    return $http.get('/postSubmit').then(function(response){
+    return $http.get('/postSuggestion').then(function(response){
       return response.data.results.map(function(item){
         return item.programs;
       });
     });
-  };
+  }; */
     $scope.test_programs = [];
 
+    $scope.getStreamSuggestion = function(model){
+            $http({
+            url: '/postSuggestion',
+            method: "POST",
+            data: JSON.stringify({ 'program' : model.name,
+                    'faculty' : model.faculty}),
+            headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as json
+        })
+        .then(function(response) {
+                // success
+                model.stream_choices = response.data;
+            }, 
+            function(response) { // optional
+                // failed
+                console.log("Failed to fetch stream choices");
+            }
+        );
+    };
+    
     $http.get('/getPrograms')
        .then(function(res){
           $scope.test_programs = res.data;
@@ -31,15 +50,15 @@ app.config(function($interpolateProvider) {
         $http({
             method  : 'POST',
             url     : '/postSubmit',
-            data    : {my_program:$scope.my_info.name,
+            data    : JSON.stringify({my_program:$scope.my_info.name,
                        my_faculty:$scope.my_info.faculty,
-                       my_term:$scope.my_info.my_term,
+                       my_term:$scope.my_info.term,
                        my_stream:$scope.my_info.stream,
                        friend_program:$scope.friend_info.name,
                        friend_faculty:$scope.friend_info.faculty,
-                       friend_program:$scope.friend_info.my_term,
-                       friend_program:$scope.friend_info.stream},
-            headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)
+                       friend_term:$scope.friend_info.term,
+                       friend_stream:$scope.friend_info.stream}),
+            headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
         })
             .success(function(data) {
                 console.log(data);

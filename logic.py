@@ -64,5 +64,5 @@ def takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program, f
     results = comparePrograms(myProgram, friendProgram, my_term, friend_term)
     print (results)
 
-takeInput("Engineering", "Software Engineering", "1A", "Math", "Computer Science", "1A", None, None)
+#takeInput("Engineering", "Software Engineering", "1A", "Math", "Computer Science", "1A", None, None)
 

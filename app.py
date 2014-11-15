@@ -5,6 +5,7 @@ import programs as program_helper
 app = Flask(__name__)
 programs = []
 import csv
+import logic
 
 @app.route("/")
 def home():
@@ -16,12 +17,19 @@ def getPrograms():
 
 @app.route("/postSubmit", methods=['POST'])
 def postSubmit():
-    my_program = str(request.form['my_program'])
-    my_stream = str(request.form['my_stream'])
-    my_term = str(request.form['my_term'])
-    friend_program = str(request.form['friend_program'])
-    friend_stream = str(request.form['friend_stream'])
-    friend_term = str(request.form['friend_term'])
+    post = request.get_json()
+    app.logger.debug(post)
+    my_program = post.get('my_program')
+    my_stream = post.get('my_stream')
+    my_term = post.get('my_term')
+    my_faculty = post.get('my_faculty')
+    friend_program = post.get('friend_program')
+    friend_stream = post.get('friend_stream')
+    friend_term = post.get('friend_term')
+    friend_faculty = post.get('friend_faculty')
+    res = logic.takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program,
+                          friend_term, my_stream, friend_stream)
+    app.logger.debug(res)
     response = json.dumps({'status': "OK"}, sort_keys=True, indent=4, separators=(',', ': '))
     return response
 
@@ -43,9 +51,13 @@ def parseColor(param):
 
 @app.route("/postSuggestion", methods=['POST'])
 def postSuggestion():
-    program = str(request.form['my_program'])
-    faculty = str(request.form['my_stream'])
+    post = request.get_json()
+    program = post.get('program')
+    faculty = post.get('faculty').capitalize()
+    app.logger.debug(program)
+    app.logger.debug(faculty)
     array = program_helper.suggestProgram(faculty,program)
+    app.logger.debug(array)
     response = json.dumps(array, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
