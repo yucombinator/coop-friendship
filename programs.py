@@ -150,7 +150,7 @@ def findProgram(facultyString, programString, stream=None):
     elif faculty == data.ENG:
         program = engProgram(programString, stream)
     elif faculty == data.SCI:
-        program == sciProgram(programString)
+        program = sciProgram(programString)
     elif faculty == data.ENV:
         program = envProgram(programString)
     else:
