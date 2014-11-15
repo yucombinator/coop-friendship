@@ -37,40 +37,43 @@
         </script>
 
             <!-- Me -->
-              <div class="row">
-                <div class="col-md-6">
+            <div class="row content">
+              <div class="row row_mine">
+                <div class="col-md-12 mine_program">
                     <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
                 </div>
-                <div class="col-md-3" ng-show="my_info.require_stream">
+                <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
                     <input type="text" ng-model="my_info.stream" ng-enabled="my_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-12 mine_term">
                     <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
                 </div>
               </div>
             <!-- Friend -->
-              <div class="row">
-                <div class="col-md-6">
+              <div class="row row_friend">
+                <div class="col-md-12 your_program">
                     <input type="text" ng-model="friend_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
                 </div>
-                <div class="col-md-3" ng-show="friend_info.require_stream">
+                <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
                     <input type="text" ng-model="friend_info.stream" ng-enabled="friend_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-12 your_term">
                     <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
 
               </div>
+              </div>
 
                 <!-- Submit -->
-              <div class="row">
-                <div class="col-md-6">
-                    <button type="button" class="btn btn-primary" ng-click="processForm()">
+              <div class="row submit_row">
+                <div class="col-md-12">
+                    <button type="button" class="btn btn-primary submit" ng-click="processForm() clicked=true" >
                         Can we be friends?
                     </button>
                 </div>
               </div>
-            <pre>Me: {[{my_info | json}]}</pre>
-            <pre>Friend: {[{friend_info | json}]}</pre>
+              </div>
+            <pre class="result">Me: {[{my_info | json}]}</pre>
+            <pre class="result">Friend: {[{friend_info | json}]}</pre>
             <!--
             <h4>Asynchronous results</h4>
             <pre>Model: {[{asyncSelected | json}]}</pre>
