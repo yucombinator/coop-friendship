@@ -12,14 +12,14 @@ def mathProgram(program, stream = None):
             return 'DD2'
         else:
             return 'DD3'
-    elif program == 'Business Administration and Computer Science (Double Degree)':
+    elif program == 'Business Administration and Mathematics (Double Degree)':
         if stream == 1:
             return 'DD1'
         elif stream == 2:
             return 'DD2'
         else:
             return 'DD3'
-    elif program == 'Mathematics/Teaching' or 'Pure Mathematics/Teaching':
+    elif program == 'Mathematics/Teaching' or program == 'Pure Mathematics/Teaching':
         if stream == 1:
             return 'T1'
         else :
@@ -93,6 +93,10 @@ def engProgram(program, stream = None):
         return "SE"
     elif (program == "Electrical Engineering" or program == "Computer Engineering") and stream == "4":
         return "ECE4"
+    elif program == "Civil Engineering" or program == "Management Engineering":
+        return "8"
+    elif program == "Environmental Engineering" or program == "Geological Engineering" or program == "Systems Design Engineering":
+        return "4"
     elif stream == "4":
         return "4"
     elif stream == "8":
@@ -141,3 +145,23 @@ def findProgram(facultyString, programString, stream=None):
         program = mathProgram(programString, stream)
 
     return faculty[program]
+
+def suggestEng(programString):
+    programs = ["Chemical Engineering", "Computer Engineering", "Electrical Engineering", "Environmental Engineering",
+                "Mechanical Engineering", "Mechatronics Engineering"]
+
+def suggestMath(programString):
+    if programString == "Mathematics/Chartered Professional Accountancy" or programString == 'Business Administration and Computer Science (Double Degree)':
+        return ["Sequence 1", "Sequence 2", "Sequence 3"]
+    else:
+        return ["Sequence 1", "Sequence 2", "Sequence 3", "Sequence 4"]
+
+def suggestProgram(facultyString, programString):
+    faculty = detFaculty(facultyString)
+    if faculty == data.ARTS:
+        return ["Sequence 1", "Sequence 2", "Sequence 3"]
+    elif faculty == data.ENG:
+        return ["Stream 4", "Stream 8"]
+    elif faculty == data.MATH:
+        return suggestMath(programString)
+
