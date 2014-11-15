@@ -1,6 +1,9 @@
 import json
 from flask import Flask,render_template, request
 import os
+import logic
+
+
 app = Flask(__name__)
 programs = []
 import csv
@@ -15,20 +18,28 @@ def getPrograms():
 
 @app.route("/postSubmit", methods=['POST'])
 def postSubmit():
+    my_faculty = str(request.form['my_faculty'])
     my_program = str(request.form['my_program'])
     my_stream = str(request.form['my_stream'])
     my_term = str(request.form['my_term'])
+    friend_faculty = str(request.form['friend_faculty'])
     friend_program = str(request.form['friend_program'])
     friend_stream = str(request.form['friend_stream'])
     friend_term = str(request.form['friend_term'])
-    response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
+    dict = logic.takeInput(my_faculty, my_program, my_term,friend_faculty,
+                           friend_program, friend_term,my_stream,friend_stream)
+    response = json.dumps(['response',{'dates':dict["terms"],
+                                       'my_array':dict["array1"],
+                                       'friend_array':dict["array2"],
+                                       'result':dict["results"]}],
+                          sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
 @app.route("/postSuggestion", methods=['POST'])
 def postSuggestion():
     program = str(request.form['my_program'])
     faculty = str(request.form['my_stream'])
-    response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
+    response = json.dumps({}, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
 if __name__ == "__main__":
