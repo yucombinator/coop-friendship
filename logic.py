@@ -1,6 +1,6 @@
-import data, datetime
-def detFaculty(faculty):
-    switch(s)
+import programs, datetime
+
+
 
 def generateTerms(length):
     #CREATE ARRAY OF TERMS
@@ -28,7 +28,7 @@ def generateTerms(length):
             date[1] -= 12
     return terms
 
-def compareArrays(array1, array2, term1="1A", term2="1A"):
+def comparePrograms(array1, array2, term1="1A", term2="1A"):
     #SHIFTING THE ARRAYS
     array1 = array1[array1.index(term1):]
     array2 = array2[array2.index(term2):]
@@ -57,5 +57,12 @@ def compareArrays(array1, array2, term1="1A", term2="1A"):
             "results":results
     }
 
-results = compareArrays(data.ARTS["AFM1"], data.ENG["BIOMED"], "1A", "1A")
-print (results)
+def takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program, friend_term, my_stream_code = None, friend_stream_code = None):
+    myProgram = programs.findProgram(my_faculty, my_program, my_stream_code)
+    friendProgram = programs.findProgram(friend_faculty, friend_program, friend_stream_code)
+
+    results = comparePrograms(myProgram, friendProgram, my_term, friend_term)
+    print (results)
+
+takeInput("Engineering", "Software Engineering", "1A", "Math", "Computer Science", "1A", None, None)
+
