@@ -112,7 +112,7 @@ body {
       top: 0;
   }
   .mastfoot {
-      position: fixed;
+      position: absolute;
       bottom: 0;
   }
   /* Handle the widths */
@@ -133,7 +133,7 @@ body {
 	top: 0;
 }
 .mastfoot {
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 }
 /* Handle the widths */
