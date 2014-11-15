@@ -10,7 +10,7 @@ ARTS = {"AFM1":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', '3A', 'COOP2', '3B', 'CO
         "ANTHRO":['1A', '1B', 'OFF', '2A', '2B', 'COOP1', '3A', 'COOP2', '3B', 'COOP3', '4A', 'COOP4', '4B'],
         "CFM":['1A', '1B', 'COOP1', '2A', 'COOP2', '2B', 'COOP3', '3A', 'COOP4', '3B', 'COOP5', '4A', 'COOP6', '4B'],
         "ECON":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', 'COOP2', '3A', 'COOP3', '3B', 'COOP4', '4A', 'COOP6', '4B'],
-        "ENGLISH":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', 'COOP2', '3A', 'COOP3', '3B', 'COOP4', 'COOP5', '4A', '4B']
+        "ENGLISH":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', 'COOP2', '3A', 'COOP3', '3B', 'COOP4', 'COOP5', '4A', '4B'],
         "GEN":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', 'COOP2', '3A', 'COOP3', '3B', 'COOP4', 'COOP5', '4A', '4B'],
         "GENSPEC":['1A', '1B', 'OFF', '2A', 'COOP1', '2B', 'COOP2', '3A', 'COOP3', '3B', 'COOP4', 'COOP5', '4A', '4B']
 }

@@ -60,4 +60,4 @@ def compareArrays(array1, array2, term1="1A", term2="1A"):
     print(results)
 
 
-compareArrays(data.AFM["1"], data.ENG["BIO"], "1A", "1A")
+compareArrays(data.ARTS["AFM1"], data.ENG["BIOMED"], "1A", "1A")
