@@ -6,37 +6,37 @@ def mathProgram(program, stream = None):
     elif program == 'Mathematical Physics':
         return 'PHYS'
     elif program == 'Business Administration and Computer Science':
-        if stream == 1:
+        if stream == "Sequence 1":
             return 'DD1'
-        elif stream == 2:
+        elif stream == "Sequence 2":
             return 'DD2'
         else:
             return 'DD3'
     elif program == 'Business Administration and Mathematics':
-        if stream == 1:
+        if stream == "Sequence 1":
             return 'DD1'
-        elif stream == 2:
+        elif stream == "Sequence 2":
             return 'DD2'
         else:
             return 'DD3'
     elif program == 'Mathematics/Teaching' or program == 'Pure Mathematics/Teaching':
-        if stream == 1:
+        if stream == "Sequence 1":
             return 'T1'
         else :
             return 'T2'
     elif program == 'Mathematics/Chartered Professional Accountancy':
-        if stream == 1:
+        if stream == "Sequence 1":
             return 'CPA1'
-        elif stream == 2:
+        elif stream == "Sequence 2":
             return 'CPA2'
         else:
             return 'CPA3'
     else:
-        if stream == 1:
+        if stream == "Sequence 1":
           return '1'
-        elif stream == 2:
+        elif stream == "Sequence 2":
             return '2'
-        elif stream == 3:
+        elif stream == "Sequence 3":
             return '3'
         else :
             return '4'
@@ -93,16 +93,16 @@ def engProgram(program, stream = None):
         return "NANO"
     elif program == "Software Engineering":
         return "SE"
-    elif (program == "Electrical Engineering" or program == "Computer Engineering") and stream == "4":
+    elif (program == "Electrical Engineering" or program == "Computer Engineering") and stream == "Stream 4":
         return "ECE4"
     elif program == "Civil Engineering" or program == "Management Engineering":
         return "8"
     elif program == "Environmental Engineering" or program == "Geological Engineering" \
             or program == "Systems Design Engineering":
         return "4"
-    elif stream == "4":
+    elif stream == "Stream 4":
         return "4"
-    elif stream == "8":
+    elif stream == "Stream 8":
         return "8"
 
 def envProgram(program):
@@ -158,6 +158,8 @@ def suggestMath(programString):
     if programString == "Mathematics/Chartered Professional Accountancy" \
             or programString == 'Business Administration and Computer Science (Double Degree)':
         return ["Sequence 1", "Sequence 2", "Sequence 3"]
+    elif programString == 'Mathematics/Teaching' or programString == 'Pure Mathematics/Teaching':
+        return ["Sequence 1", "Sequence 2"]
     else:
         return ["Sequence 1", "Sequence 2", "Sequence 3", "Sequence 4"]
 
