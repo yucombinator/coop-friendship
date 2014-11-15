@@ -62,7 +62,7 @@ def parseColor(param):
 def postSuggestion():
     post = request.get_json()
     program = post.get('program')
-    faculty = post.get('faculty').capitalize()
+    faculty = post.get('faculty')
     app.logger.debug(program)
     app.logger.debug(faculty)
     array = program_helper.suggestProgram(faculty,program)
