@@ -55,7 +55,7 @@
         
         <!-- Me -->
         <div class="row content">
-          <div class="row row_mine">
+          <div class=" col-md-6 row row_mine">
             <div class="col-md-12 mine_program">
                 <h3 class="masthead-brand"><span style="color:yellow;">YOU</span></h3>
               <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
@@ -74,7 +74,7 @@
             </div>
           </div>
           <!-- Friend -->
-          <div class="row row_friend">
+          <div class="col-md-6 row row_friend">
             <div class="col-md-12 your_program">
                 <h3 class="masthead-brand"><span style="color:yellow;">YOUR FRIEND</span></h3>
               <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
