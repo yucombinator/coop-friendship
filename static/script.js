@@ -86,7 +86,6 @@ app.config(function($interpolateProvider) {
             return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
         }
     };
-    $scope.fade = "false";
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};
@@ -110,7 +109,6 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
-				$scope.fade = "true"
                 
             });
     };
