@@ -8,7 +8,7 @@ def generateTerms(length):
     for element in range(len(date)):
         date[element] = int(date[element])
 
-    #Append term to array
+    #Appendz term to array
     terms = []
     for index in range(length):
         currentTerm = str(date[0])

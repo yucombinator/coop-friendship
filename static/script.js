@@ -37,7 +37,24 @@ app.config(function($interpolateProvider) {
             }
         );
     };
-    
+    $scope.getTermsSuggestion = function(model){
+            $http({
+            url: '/postTerms',
+            method: "POST",
+            data: JSON.stringify({ 'program' : model.name,
+                    'faculty' : model.faculty}),
+            headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as json
+        })
+        .then(function(response) {
+                // success
+                model.terms_choices = response.data;
+            }, 
+            function(response) { // optional
+                // failed
+                console.log("Failed to fetch terms choices");
+            }
+        );
+    };   
     $http.get('/getPrograms')
        .then(function(res){
           $scope.test_programs = res.data;

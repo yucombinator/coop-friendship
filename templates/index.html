@@ -49,7 +49,10 @@
                     </datalist>
                 </div>
                 <div class="col-md-12 mine_term">
-                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control">
+                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control" ng-click="getTermsSuggestion(my_info)" list="mterms">
+                    <datalist id="mterms">
+                      <option value="{[{term}]}" ng-repeat="term in my_info.terms_choices">
+                    </datalist>
                 </div>
               </div>
             <!-- Friend -->
@@ -64,8 +67,10 @@
                     </datalist>
                 </div>
                 <div class="col-md-12 your_term">
-                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" >
-
+                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" ng-click="getTermsSuggestion(friend_info)" list="fterms">
+                    <datalist id="fterms">
+                      <option value="{[{term}]}" ng-repeat="term in friend_info.terms_choices">
+                    </datalist>
               </div>
               </div>
 
@@ -78,14 +83,6 @@
                 </div>
               </div>
               </div>
-            <pre class="result">Me: {[{my_info | json}]}</pre>
-            <pre class="result">Friend: {[{friend_info | json}]}</pre>
-            <!--
-            <h4>Asynchronous results</h4>
-            <pre>Model: {[{asyncSelected | json}]}</pre>
-            <pre>Model: {[{asyncSelected | json}]}</pre>
-            <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
-            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
 
         </form>
             <table class="proletariat">

@@ -179,4 +179,4 @@ def suggestProgram(facultyString, programString):
 def returnTerms(facultyString, programString):
     faculty = detFaculty(facultyString)
     program = findProgram(facultyString, programString)
-    return faculty[program]
+    return program

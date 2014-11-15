@@ -70,6 +70,18 @@ def postSuggestion():
     response = json.dumps(array, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
+@app.route("/postTerms", methods=['POST'])
+def postTerms():
+    post = request.get_json()
+    program = post.get('program')
+    faculty = post.get('faculty')
+    app.logger.debug(program)
+    app.logger.debug(faculty)
+    array = program_helper.returnTerms(faculty,program)
+    app.logger.debug(array)
+    response = json.dumps(array, sort_keys=True,indent=4, separators=(',', ': '))
+    return response
+
 if __name__ == "__main__":
     f = open('programs.csv')
     csv_f = csv.reader(f)
