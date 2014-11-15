@@ -161,3 +161,11 @@ body {
     width: 700px;
   }
 }
+
+
+/*New CSS design*/
+
+.program{
+	border-radius:100px;
+	margin:3px;
+}
