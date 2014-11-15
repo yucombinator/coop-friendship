@@ -1,4 +1,4 @@
-coop-friendship
+WatAreFriends
 ===============
 About Us
 ======
