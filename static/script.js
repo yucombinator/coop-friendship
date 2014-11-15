@@ -11,21 +11,21 @@ app.config(function($interpolateProvider) {
   $scope.selected = undefined;
   // Any function returning a promise object can be used to load values asynchronously
   $scope.getLocation = function(val) {
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address: val,
-        sensor: false
-      }
-    }).then(function(response){
+    return $http.get('/postSubmit').then(function(response){
       return response.data.results.map(function(item){
-        return item.formatted_address;
+        return item.programs;
       });
     });
   };
+    $scope.test_programs = [];
 
-    $scope.test_programs = [{'name':'Software Engineering','faculty':'engineering','color':'purple', 'require_stream':'false'},{'name':'Actuarial Science','faculty':'math','color':'pink','require_stream':'true'},
-    {'name':'Anthropology','faculty':'arts','color':'orange', 'require_stream':'false'}];
+    $http.get('/getPrograms')
+       .then(function(res){
+          $scope.test_programs = res.data;
+        //console.log(res.data);
+    });
     
+
     // process the form
     $scope.processForm = function() {
         $http({
