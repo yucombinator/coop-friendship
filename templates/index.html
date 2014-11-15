@@ -37,7 +37,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr ng-repeat="result in results.dates">
+          <tr ng-repeat="result in results.dates" ng-style="styleRow(results.result[$index])">
             <td>{[{result}]}</td>
             <td>{[{results.my_array[$index]}]}</td>
             <td>{[{results.friend_array[$index]}]}</td>

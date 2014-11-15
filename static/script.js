@@ -18,7 +18,6 @@ app.config(function($interpolateProvider) {
     });
   }; */
     $scope.test_programs = [];
-
     $scope.getStreamSuggestion = function(model){
             $http({
             url: '/postSuggestion',
@@ -61,7 +60,10 @@ app.config(function($interpolateProvider) {
         //console.log(res.data);
     });
     
-
+    $scope.styleRow = function(result){
+        if(result == "On Campus") return {'background-color':'green'};
+        else return {'background-color':'red'};
+    };
     // process the form
     $scope.processForm = function() {
         $http({
