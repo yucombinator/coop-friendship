@@ -75,7 +75,10 @@ app.config(function($interpolateProvider) {
         percentage = on/total*100;
         percentage = Math.round(percentage);
         random = Math.floor((Math.random() * 100) + 1);
-
+        if (percentage < 5){
+            return "How did you guys even meet?! On stream " + String(percentage) + "% of the time.";
+        }
+        
         if (percentage < 30){
             if(random%2 == 0)
                 return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
