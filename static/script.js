@@ -98,11 +98,11 @@ app.config(function($interpolateProvider) {
             url     : '/postSubmit',
             data    : JSON.stringify({my_program:$scope.my_info.name,
                        my_faculty:$scope.my_info.faculty,
-                       my_term:$scope.my_info.term,
+                       my_term: $scope.my_info.term.toUpperCase(),
                        my_stream:$scope.my_info.stream,
                        friend_program:$scope.friend_info.name,
                        friend_faculty:$scope.friend_info.faculty,
-                       friend_term:$scope.friend_info.term,
+                       friend_term:$scope.friend_info.term.toUpperCase(),
                        friend_stream:$scope.friend_info.stream}),
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
         })
