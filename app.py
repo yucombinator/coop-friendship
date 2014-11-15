@@ -3,7 +3,7 @@ from flask import Flask,render_template, request
 import os
 import logic
 import programs as program_helper
->>>>>>> origin/master
+
 app = Flask(__name__)
 programs = []
 import csv
