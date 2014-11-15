@@ -74,8 +74,8 @@ Scientific Computation/Applied Mathematics,math,true
 Statistics,math,true
 Statistics for Health,math,true
 Bioinformatics,math,false
-Business Administration and Computer Science,math,false
-Business Administration and Mathematics,math,false
+Business Administration and Computer Science,math,true
+Business Administration and Mathematics,math,true
 Mathematics/Chartered Professional Accountancy,math,true
 Pure Mathematics/Teaching,math,false
 Mathematics/Teaching,math,false
@@ -94,4 +94,5 @@ Physics,science,false,science,false
 Mathematical Physics,science,false
 Life Physics,science,false
 Physics and Astronomy,science,false
+Psychology,science,false
 Pharmacy,science,false
