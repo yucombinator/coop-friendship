@@ -28,11 +28,11 @@ def postSubmit():
     app.logger.debug(post)
     my_program = post.get('my_program')
     my_stream = post.get('my_stream')
-    my_term = post.get('my_term')
+    my_term = post.get('my_term').upper()
     my_faculty = post.get('my_faculty')
     friend_program = post.get('friend_program')
     friend_stream = post.get('friend_stream')
-    friend_term = post.get('friend_term')
+    friend_term = post.get('friend_term').upper()
     friend_faculty = post.get('friend_faculty')
 
     dict = logic.takeInput(my_faculty, my_program, my_term, friend_faculty,
