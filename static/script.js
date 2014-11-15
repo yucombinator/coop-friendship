@@ -91,8 +91,14 @@ app.config(function($interpolateProvider) {
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};
     };
+    
     // process the form
     $scope.processForm = function() {
+        //check data
+        if($scope.my_info.name == null || $scope.mstream == null || $scope.mterm == null || $scope.friend_info.name == null || $scope.fterm == null || $scope.fstream== null){
+            $scope.error = "You forgot to fill in something.";
+        }
+        
         $http({
             method  : 'POST',
             url     : '/postSubmit',
@@ -110,7 +116,15 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
-                
-            });
+                if(results == null){
+                    //error?
+                    $scope.error = "Something went wrong, check your values?";
+                }
+            })
+        .error(function(data, status, headers, config) {
+            // called asynchronously if an error occurs
+            // or server returns response with an error status.
+            $scope.error = "Something went wrong, check your values?";
+          });;
     };
 });

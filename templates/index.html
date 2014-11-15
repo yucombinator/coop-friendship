@@ -28,8 +28,8 @@
           </nav>
         </div>
       </div>
-      <div class="table_content card" ng-show="results != null">
-        <h3 ng-if="results!=null">{[{onStream(results.result)}]}</h3>
+      <div class="table_content card"  ng-show="results != null">
+        <h3 ng-if="results!=null" class="alert alert-info" role="alert">{[{onStream(results.result)}]}</h3>
         <table class="proletariat table table-hover">
           <thead>
             <tr style="text-align:center;">
@@ -56,6 +56,9 @@
               <span bind-html-unsafe="match.model.name | typeaheadHighlight:query"></span>
           </a>
         </script> 
+          
+        <!-- Errors -->
+        <div class="alert alert-danger" role="alert" ng-show="error != null">{[{error}]}</div>
         
         <!-- Me -->
         <div class="row content" id="cont">
