@@ -4,18 +4,18 @@ app = Flask(__name__)
 
 
 
-eng = {"8": ["1A", "1B", "COOP1", "2A", "COOP2"], "4": ["1A", "COOP1", "1B", "COOP2"],
-       "ARCH": ["1A", "1B", "OFF", "2A", "2B"]}
+eng = {"8": ["1A", "1B", "COOP1", "2A", "COOP2", "2B", "COOP3", "3A", "COOP4", "3B", "COOP5", "4A", "COOP6", "4B"],
+       "4": ["1A", "COOP1", "1B", "COOP2","2A", "COOP3", "2B", "COOP4", "3A", "COOP5", "3B", "COOP6", "4A", "4B"],
+       "ARCH": ["1A", "1B", "OFF", "2A", "COOP1", "2B", "COOP2", "3A", "COOP3", "3B", "COOP4", "COOP5", "4A", "COOP6", "4B"]}
 
-def compareArrays(array1, array2, term1 = "1A", term2 = "1A"):
+def compareArrays(array1, array2, term1="1B", term2="1A"):
     #SHIFTING THE ARRAYS
-    shift1 = array1.index(term1)
-    shift2 = array2.index(term1)
+    array1 = array1[array1.index(term1):]
+    array2 = array2[array2.index(term2):]
 
     #PRINTING STUFF
     results = []
     length = min(len(array1), len(array2))
-    print (term1 ,term2)
     for index in range(length):
         if "COOP" not in array1[index] and "OFF" not in array1[index] and "COOP" not in array2[index] and "OFF" not in array2[index]:
             results.append("ON CAMPUS")
@@ -29,21 +29,26 @@ def compareArrays(array1, array2, term1 = "1A", term2 = "1A"):
     for index in range(padding):
         results.append("NO MATCH")
 
-    #Create array of terms.
+    #CREATE ARRAY OF TERMS
+    #Keeping track of dates.
     date = str(datetime.date.today()).split("-")
-    for element in range (len(date)):
+    for element in range(len(date)):
         date[element] = int(date[element])
+
+    #Append term to array
     terms = []
-    for index in range(length):
+    for index in range(length + padding):
         currentTerm = str(date[0])
-        if date[1] >= 1 and date[1] <= 4:
+        if 1 <= date[1] <= 4:
             currentTerm += "W"
-        elif date[1] >= 5 and date[2] <= 8:
+        elif 5 <= date[1] <= 8:
             currentTerm += "S"
         else:
             currentTerm += "F"
         terms.append(currentTerm)
-        date[1]+= 4
+
+        #Shift to next term and wrap
+        date[1] += 4
         if date[1] > 12:
             date[0] += 1
             date[1] -= 12
@@ -55,4 +60,4 @@ def compareArrays(array1, array2, term1 = "1A", term2 = "1A"):
     print(results)
 
 
-compareArrays(eng["8"], eng["ARCH"])
+compareArrays(eng["8"], eng["4"], "2A", "1A")
