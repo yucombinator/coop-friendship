@@ -76,7 +76,8 @@ def artsProgram(program, stream=None):
             return "AFM2"
         else:
             return "AFM3"
-    elif program == "Anthropology" or program == "Political Science" or program == "Psychology" or program == "Sociology":
+    elif program == "Anthropology" or program == "Political Science" or program == "Psychology" or \
+                    program == "Sociology":
         return "ANTHRO"
     elif program == "Arts and Business with Digital Arts Communication Specialization":
         return "GENSPEC"
@@ -143,7 +144,7 @@ def findProgram(facultyString, programString, stream=None):
     faculty = detFaculty(facultyString)
     program = ""
     if faculty == data.ARTS:
-        program == artsProgram(programString, stream)
+        program = artsProgram(programString, stream)
     elif faculty == data.AHS:
         program = ahsProgram(programString)
     elif faculty == data.ENG:
@@ -154,7 +155,8 @@ def findProgram(facultyString, programString, stream=None):
         program = envProgram(programString)
     else:
         program = mathProgram(programString, stream)
-
+    print(program)
+    print(faculty[program])
     return faculty[program]
 
 
