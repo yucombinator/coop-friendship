@@ -7,7 +7,7 @@ def convert(program, stream = None):
         return 'BIO'
     elif program == 'Mathematical Physics':
         return 'PHYS'
-    elif program == 'Business Administration and Computer Science (Double Degree)'
+    elif program == 'Business Administration and Computer Science (Double Degree)':
         if stream == 1:
             return 'DD1'
         elif stream == 2:
