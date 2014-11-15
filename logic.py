@@ -11,13 +11,14 @@ def generateTerms(length):
     #Appendz term to array
     terms = []
     for index in range(length):
-        currentTerm = str(date[0])
+        currentTerm = ""
         if 1 <= date[1] <= 4:
-            currentTerm += "W"
+            currentTerm = "WINTER "
         elif 5 <= date[1] <= 8:
-            currentTerm += "S"
+            currentTerm = "SPRING "
         else:
-            currentTerm += "F"
+            currentTerm = "FALL "
+        currentTerm += str(date[0])
         terms.append(currentTerm)
 
         #Shift to next term and wrap
@@ -42,12 +43,12 @@ def comparePrograms(array1, array2, term1="1A", term2="1A"):
         elif ("COOP" in array1[index] or array1[index] == "OFF") and ("COOP" in array2[index] or array2[index] == "OFF"):
             results.append("OFF CAMPUS")
         else:
-            results.append("NO MATCH")
+            results.append("MISMATCH")
 
     #PAD "NO MATCH" to the end.
     padding = abs(len(array1)-len(array2))
     for index in range(padding):
-        results.append("NO MATCH")
+        results.append("MISMATCH")
 
     terms = generateTerms(max(len(array1), len(array2)))
 
