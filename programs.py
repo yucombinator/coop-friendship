@@ -87,7 +87,7 @@ def artsProgram(program, stream=None):
         return "CFM"
     elif program == "Economics":
         return "ECON"
-    elif program == "English":
+    elif "English" in program:
         return "ENGLISH"
     else:
         return "GEN"
