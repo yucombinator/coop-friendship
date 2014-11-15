@@ -70,7 +70,8 @@ app.config(function($interpolateProvider) {
                 on++;
             }
         }
-        return on/total*100;
+        percentage = on/total*100;
+        return Math.round(percentage);
     };
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
