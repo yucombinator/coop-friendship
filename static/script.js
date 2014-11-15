@@ -80,7 +80,7 @@ app.config(function($interpolateProvider) {
             return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
         }
         else if (percentage >= 50){
-            return "BFFs? Maybe. Don't screw this one up. You'll see them for about" + String(percentage) + "% of the next 5 years.";
+            return "BFFs? Maybe. Don't screw this one up. You'll see them for about " + String(percentage) + "% of the next 5 years.";
         }
         else{
             return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
