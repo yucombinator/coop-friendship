@@ -39,11 +39,11 @@ def comparePrograms(array1, array2, term1="1A", term2="1A"):
     length = min(len(array1), len(array2))
     for index in range(length):
         if "COOP" not in array1[index] and "OFF" not in array1[index] and "COOP" not in array2[index] and "OFF" not in array2[index]:
-            results.append("On Campus")
+            results.append("No")
         elif ("COOP" in array1[index] or array1[index] == "OFF") and ("COOP" in array2[index] or array2[index] == "OFF"):
             results.append("Off Campus")
         else:
-            results.append("Mismatch")
+            results.append("Yes")
 
     #PAD "Mismatch" to the end.
     padding = abs(len(array1)-len(array2))
