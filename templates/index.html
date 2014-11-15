@@ -16,7 +16,9 @@
     <div class="cover-container">
       <div class="masthead clearfix">
         <div class="inner">
-          <h3 class="masthead-brand"><span style="color:yellow;">Wat</span>AreFriends</h3>
+            <a href="/">
+                <h3 class="masthead-brand"><span style="color:yellow;">Wat</span>AreFriends</h3>
+            </a>
           <nav>
             <ul class="nav masthead-nav">
               <li class="active"><a href="/">Home</a></li>
@@ -26,7 +28,7 @@
         </div>
       </div>
       <div class="table_content card" ng-show="results != null">
-        <p ng-style = "onStream(results.result)">{[{onStream(results.result)}]}</p>
+        <h3 ng-style = "onStream(results.result)">{[{onStream(results.result)}]}</h3>
         <table class="proletariat table table-hover">
           <thead>
             <tr>
@@ -45,7 +47,7 @@
             </tr>
           </tbody>
         </table>
-        <button type="button" class="btn btn-primary submit" ng-click="results = null" onClick="fadeIn(this);"> MY EYES </button>
+        <button type="button" class="btn btn-primary submit" ng-click="results = null" onClick="fadeIn(this);">Try another friend!</button>
       </div>
       <form id="form" role="form" class="inner cover card" ng-show="results == null">
         <script type="text/ng-template" id="customTemplate.html">
