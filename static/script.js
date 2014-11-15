@@ -75,8 +75,8 @@ app.config(function($interpolateProvider) {
         percentage = on/total*100;
         percentage = Math.round(percentage);
         random = Math.floor((Math.random() * 100) + 1);
-        if (percentage < 5){
-            return "How did you guys even meet?! On stream " + String(percentage) + "% of the time.";
+        if (percentage < 10){
+            return "Sorry partner. Looks like you'll have to find someone else - " + String(percentage) + "% of the time won't cut it.";
         }
         
         if (percentage < 30){
@@ -85,11 +85,11 @@ app.config(function($interpolateProvider) {
             else
                 return "It's not you. It's me. You're only on stream " + String(percentage) + "% of the time.";
         }
-        else if (percentage >= 50){
+        else if (percentage >= 70){
             if(random%2 == 0)
-                return "BFFs? Maybe. Don't screw this one up. You'll see them for about " + String(percentage) + "% of the next 5 years.";
+                return "Sublet. Now. Trust us on this one, you've got " + String(percentage) + "% of the next 5 years taken care of.";
             else
-                return "You guys might as well be married... " + String(percentage) + "% match for the next 5 years!";
+                return "What're you waiting for? You should've subletted long ago - " + String(percentage) + "% match for the next 5 years!";
         }
         else{
             return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
