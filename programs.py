@@ -155,8 +155,6 @@ def findProgram(facultyString, programString, stream=None):
         program = envProgram(programString)
     else:
         program = mathProgram(programString, stream)
-    print(program)
-    print(faculty[program])
     return faculty[program]
 
 
