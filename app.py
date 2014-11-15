@@ -2,13 +2,16 @@ import json
 from flask import Flask,render_template, request
 import os
 app = Flask(__name__)
+programs = []
+import csv
 
 @app.route("/")
 def home():
     return render_template('index.html')
 @app.route("/getPrograms")
 def getPrograms():
-    return render_template('index.html')
+    response = json.dumps(programs, sort_keys=True,indent=4, separators=(',', ': '))
+    return response
 
 @app.route("/postSubmit", methods=['POST'])
 def postSubmit():
@@ -22,4 +25,9 @@ def postSubmit():
     return response
 
 if __name__ == "__main__":
+    f = open('programs.csv')
+    csv_f = csv.reader(f)
+    for row in csv_f:
+      programs.append({'program':row[0],'faculty':row[1],'require_stream':row[2]})
     app.run(debug=True,host='localhost',port=int(os.environ.get("PORT", 5000)))
+
