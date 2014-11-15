@@ -65,5 +65,5 @@ def takeInput(my_faculty, my_program, my_term, friend_faculty, friend_program, f
     print (results)
     return results
 
-#takeInput("Engineering", "Software Engineering", "1A", "Math", "Computer Science", "1A", None, None)
+#takeInput("engineering", "Software Engineering", "1A", "arts", "English", "1A", None, None)
 
