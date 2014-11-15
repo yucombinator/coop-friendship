@@ -16,17 +16,16 @@
     <div class="cover-container">
       <div class="masthead clearfix">
         <div class="inner">
-          <h3 class="masthead-brand">WatAreFriends</h3>
+          <h3 class="masthead-brand"><span style="color:yellow;">Wat</span>AreFriends</h3>
           <nav>
             <ul class="nav masthead-nav">
               <li class="active"><a href="#">Home</a></li>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#">About</a></li>
             </ul>
           </nav>
         </div>
       </div>
-      <form id="form" role="form" class="inner cover">
+      <form id="form" role="form" class="inner cover card">
         <script type="text/ng-template" id="customTemplate.html">
           <a style="color:{[{match.model.color}]}">
               <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
@@ -37,6 +36,7 @@
         <div class="row content">
           <div class="row row_mine">
             <div class="col-md-12 mine_program">
+                <h3 class="masthead-brand"><span style="color:yellow;">YOU</span></h3>
               <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
             </div>
             <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
@@ -55,6 +55,7 @@
           <!-- Friend -->
           <div class="row row_friend">
             <div class="col-md-12 your_program">
+                <h3 class="masthead-brand"><span style="color:yellow;">YOUR FRIEND</span></h3>
               <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
             </div>
             <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
