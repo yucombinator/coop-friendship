@@ -32,7 +32,7 @@
         <h3 ng-if="results!=null">{[{onStream(results.result)}]}</h3>
         <table class="proletariat table table-hover">
           <thead>
-            <tr>
+            <tr style="text-align:center;">
               <th>Term</th>
               <th>You</th>
               <th>Your friend</th>
@@ -62,7 +62,7 @@
           <div class="col-md-12 equal_row">
             <div class=" col-md-6 row row_mine">
               <div class="col-md-12 mine_program">
-                <h3 class="masthead-brand"><span style="color:yellow;">YOU</span></h3>
+                <h3 class="masthead-brand"><span style="color:gray;">YOU</span></h3>
                 <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
               </div>
               <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
@@ -73,6 +73,7 @@
               </div>
               <div class="col-md-12 mine_term">
                 <input type="text" id="my_info.term" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control" ng-click="getTermsSuggestion(my_info)" list="mterms">
+                <datalist id="mterms">
                 <option value="{[{mterm}]}" ng-repeat="mterm in my_info.terms_choices">
                 </datalist>
               </div>
@@ -80,7 +81,7 @@
             <!-- Friend -->
             <div class="col-md-6 row row_friend">
               <div class="col-md-12 your_program">
-                <h3 class="masthead-brand"><span style="color:yellow;">YOUR FRIEND</span></h3>
+                <h3 class="masthead-brand"><span style="color:gray;">YOUR FRIEND</span></h3>
                 <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
               </div>
               <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
