@@ -24,10 +24,29 @@ def postSubmit():
     response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
+
+def parseColor(param):
+    if param == "science":
+        return "blue"
+    elif param == "math":
+        return "violet"
+    elif param == "environment":
+        return "green"
+    elif param == "arts":
+        return "orange"
+    elif param == "engineering":
+        return "purple"
+    elif param == "health":
+        return "blue"
+    else:
+        return "black"
+
+
 if __name__ == "__main__":
     f = open('programs.csv')
     csv_f = csv.reader(f)
     for row in csv_f:
-      programs.append({'program':row[0],'faculty':row[1],'require_stream':row[2]})
+      color = parseColor(row[1])
+      programs.append({'name':row[0],'faculty':row[1],'require_stream':row[2],'color':color})
     app.run(debug=True,host='localhost',port=int(os.environ.get("PORT", 5000)))
 
