@@ -1,6 +1,7 @@
 import json
 from flask import Flask,render_template, request
 import os
+import programs as program_helper
 app = Flask(__name__)
 programs = []
 import csv
@@ -10,7 +11,7 @@ def home():
     return render_template('index.html')
 @app.route("/getPrograms")
 def getPrograms():
-    response = json.dumps(programs, sort_keys=True,indent=4, separators=(',', ': '))
+    response = json.dumps(programs, sort_keys=True, indent=4, separators=(',', ': '))
     return response
 
 @app.route("/postSubmit", methods=['POST'])
@@ -21,7 +22,7 @@ def postSubmit():
     friend_program = str(request.form['friend_program'])
     friend_stream = str(request.form['friend_stream'])
     friend_term = str(request.form['friend_term'])
-    response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
+    response = json.dumps({'status': "OK"}, sort_keys=True, indent=4, separators=(',', ': '))
     return response
 
 def parseColor(param):
@@ -44,7 +45,8 @@ def parseColor(param):
 def postSuggestion():
     program = str(request.form['my_program'])
     faculty = str(request.form['my_stream'])
-    response = json.dumps({'status': "OK"}, sort_keys=True,indent=4, separators=(',', ': '))
+    array = program_helper.suggestProgram(faculty,program)
+    response = json.dumps(array, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
 if __name__ == "__main__":

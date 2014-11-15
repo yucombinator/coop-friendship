@@ -10,7 +10,7 @@ app.config(function($interpolateProvider) {
 
   $scope.selected = undefined;
   // Any function returning a promise object can be used to load values asynchronously
-  $scope.getLocation = function(val) {
+  $scope.getStreamSuggestion = function(val) {
     return $http.get('/postSubmit').then(function(response){
       return response.data.results.map(function(item){
         return item.programs;
@@ -32,9 +32,11 @@ app.config(function($interpolateProvider) {
             method  : 'POST',
             url     : '/postSubmit',
             data    : {my_program:$scope.my_info.name,
+                       my_faculty:$scope.my_info.faculty,
                        my_term:$scope.my_info.my_term,
                        my_stream:$scope.my_info.stream,
                        friend_program:$scope.friend_info.name,
+                       friend_faculty:$scope.friend_info.faculty,
                        friend_program:$scope.friend_info.my_term,
                        friend_program:$scope.friend_info.stream},
             headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)

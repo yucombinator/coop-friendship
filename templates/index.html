@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href= "/static/style.css">
+    <link rel="stylesheet" type="text/css" href= "/static/styles.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
     <script src="/static/script.js"></script>
     <script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
@@ -11,62 +11,81 @@
 
 </head>
 
-<body>
+<body ng-controller="MainCtrl">
+    <div class="site-wrapper">
 
-<div class='container-fluid' ng-controller="MainCtrl">
+      <div class="site-wrapper-inner">
 
-<form id="form" role="form">
-<script type="text/ng-template" id="customTemplate.html">
-  <a style="color:{[{match.model.color}]}">
-      <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
-  </a>
-</script>
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand">Cover</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <li class="active"><a href="#">Home</a></li>
+                  <li><a href="#">Features</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        <form id="form" role="form" class="inner cover">
+        <script type="text/ng-template" id="customTemplate.html">
+          <a style="color:{[{match.model.color}]}">
+              <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+          </a>
+        </script>
 
-    <!-- Me -->
-      <div class="row">
-        <div class="col-md-6">
-            <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
-        </div>
-        <div class="col-md-3" ng-show="my_info.require_stream">
-            <input type="text" ng-model="my_info.stream" ng-enabled="my_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
-        </div>
-        <div class="col-md-3">
-            <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
-        </div>
-      </div>
-    <!-- Friend -->
-      <div class="row">
-        <div class="col-md-6">
-            <input type="text" ng-model="friend_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
-        </div>
-        <div class="col-md-3" ng-show="friend_info.require_stream">
-            <input type="text" ng-model="friend_info.stream" ng-enabled="friend_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
-        </div>
-        <div class="col-md-3">
-            <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
-        </div>
-      </div>
-    
-        <!-- Submit -->
-      <div class="row">
-        <div class="col-md-6">
-            <button type="button" class="btn btn-primary" ng-click="processForm()">
-                Can we be friends?
-            </button>
-        </div>
-      </div>
-    <pre>Me: {[{my_info | json}]}</pre>
-    <pre>Friend: {[{friend_info | json}]}</pre>
-    <!--
-    <h4>Asynchronous results</h4>
-    <pre>Model: {[{asyncSelected | json}]}</pre>
-    <pre>Model: {[{asyncSelected | json}]}</pre>
-    <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
-    <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
+            <!-- Me -->
+              <div class="row">
+                <div class="col-md-6">
+                    <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                </div>
+                <div class="col-md-3" ng-show="my_info.require_stream">
+                    <input type="text" ng-model="my_info.stream" ng-enabled="my_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
+                </div>
+              </div>
+            <!-- Friend -->
+              <div class="row">
+                <div class="col-md-6">
+                    <input type="text" ng-model="friend_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                </div>
+                <div class="col-md-3" ng-show="friend_info.require_stream">
+                    <input type="text" ng-model="friend_info.stream" ng-enabled="friend_info.require_stream" placeholder="Type your coop-stream here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control" typeahead-min-length="0">
 
-</form>
+              </div>
+
+                <!-- Submit -->
+              <div class="row">
+                <div class="col-md-6">
+                    <button type="button" class="btn btn-primary" ng-click="processForm()">
+                        Can we be friends?
+                    </button>
+                </div>
+              </div>
+            <pre>Me: {[{my_info | json}]}</pre>
+            <pre>Friend: {[{friend_info | json}]}</pre>
+            <!--
+            <h4>Asynchronous results</h4>
+            <pre>Model: {[{asyncSelected | json}]}</pre>
+            <pre>Model: {[{asyncSelected | json}]}</pre>
+            <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
+            <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
+
+        </form>
+        <div class="mastfoot">
+            <div class="inner">
+              <p>Made with love.</p>
+            </div>
+        </div>
+        </div>
+    </div>
 </div>
-
-
 </body>
 </html>
