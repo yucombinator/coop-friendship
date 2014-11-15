@@ -18,8 +18,7 @@ app.config(function($interpolateProvider) {
     });
   }; */
     $scope.test_programs = [];
-    $scope.my_info = [];
-    $scope.friend_info = [];
+
     $scope.getStreamSuggestion = function(model){
             $http({
             url: '/postSuggestion',
@@ -61,7 +60,33 @@ app.config(function($interpolateProvider) {
           $scope.programs_list = res.data;
         //console.log(res.data);
     });
-    $scope.fade = "false"
+    $scope.fade = "false";
+
+    $scope.onStream = function(result){
+        var on = 0;
+        var total = 0;
+
+        for (i = 0;  i < result.length; i++){
+            total++;
+            if (result[i]=="On Campus"){
+                on++;
+            }
+        }
+        percentage = on/total*100;
+        percentage = Math.round(percentage);
+
+
+        if (percentage < 30){
+            return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
+        }
+        else if (percentage >= 50){
+            return "BFFs? Maybe. Don't screw this one up. You'll see them for about " + String(percentage) + "% of the next 5 years.";
+        }
+        else{
+            return "Friends? Sure, why not? You spend " + String(percentage) + "% of the time together.";
+        }
+    };
+
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};
@@ -73,11 +98,11 @@ app.config(function($interpolateProvider) {
             url     : '/postSubmit',
             data    : JSON.stringify({my_program:$scope.my_info.name,
                        my_faculty:$scope.my_info.faculty,
-                       my_term:$scope.my_info.term,
+                       my_term: $scope.my_info.term.toUpperCase(),
                        my_stream:$scope.my_info.stream,
                        friend_program:$scope.friend_info.name,
                        friend_faculty:$scope.friend_info.faculty,
-                       friend_term:$scope.friend_info.term,
+                       friend_term:$scope.friend_info.term.toUpperCase(),
                        friend_stream:$scope.friend_info.stream}),
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as form data (not request payload)
         })
@@ -85,7 +110,6 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
-				$scope.fade = "true"
                 
             });
     };
