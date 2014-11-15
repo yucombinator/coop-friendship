@@ -204,15 +204,21 @@ body {
 	margin: 10px;
 	width: inherit;
 }
-.content {
-	-webkit-transition: opacity 1s ease-in;
+
+
+#cont {
+	-webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -o-transition: opacity 0.5s ease-in;
 }
-.content.fade-out {
+#cont.fade-out {
 	opacity: 0;
 }
-.content.fade-in {
+#cont.fade-in {
 	opacity: 1;
 }
+
+
 .submit {
 	clear: both;
 	margin-top: 15%;
