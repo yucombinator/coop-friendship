@@ -18,8 +18,7 @@ app.config(function($interpolateProvider) {
     });
   }; */
     $scope.test_programs = [];
-    $scope.my_info = [];
-    $scope.friend_info = [];
+
     $scope.getStreamSuggestion = function(model){
             $http({
             url: '/postSuggestion',
@@ -61,7 +60,7 @@ app.config(function($interpolateProvider) {
           $scope.programs_list = res.data;
         //console.log(res.data);
     });
-    $scope.fade = "false"
+    $scope.fade = "false";
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};

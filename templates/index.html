@@ -62,7 +62,7 @@
       <form id="form" role="form" class="inner cover card" ng-show="results == null">
         <script type="text/ng-template" id="customTemplate.html">
           <a style="color:{[{match.model.color}]}">
-              <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+              <span bind-html-unsafe="match.model.name | typeaheadHighlight:query"></span>
           </a>
         </script> 
         
@@ -71,7 +71,7 @@
               <div class=" col-md-6 row row_mine">
             <div class="col-md-12 mine_program">
                   <h3 class="masthead-brand"><span style="color:yellow;">YOU</span></h3>
-                  <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
+                  <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="mprog as mprog.name for mprog in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
                 </div>
             <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
                   <input type="text" ng-model="my_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(my_info)" list="mystreams">
@@ -90,7 +90,7 @@
               <div class="col-md-6 row row_friend">
             <div class="col-md-12 your_program">
                   <h3 class="masthead-brand"><span style="color:yellow;">YOUR FRIEND</span></h3>
-                  <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+                  <input type="text" ng-model="friend_info" placeholder="Type program here"  typeahead="yprog as yprog.name for yprog in programs_list | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
                 </div>
             <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
                   <input type="text" ng-model="friend_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(friend_info)" list="fstreams">
