@@ -10,31 +10,33 @@ app.config(function($interpolateProvider) {
 
   $scope.selected = undefined;
   // Any function returning a promise object can be used to load values asynchronously
-  $scope.getLocation = function(val) {
-    return $http.get('http://maps.googleapis.com/maps/api/geocode/json', {
-      params: {
-        address: val,
-        sensor: false
-      }
-    }).then(function(response){
+  $scope.getStreamSuggestion = function(val) {
+    return $http.get('/postSubmit').then(function(response){
       return response.data.results.map(function(item){
-        return item.formatted_address;
+        return item.programs;
       });
     });
   };
+    $scope.test_programs = [];
 
-    $scope.test_programs = [{'name':'Software Engineering','faculty':'engineering','color':'purple', 'require_stream':'false'},{'name':'Actuarial Science','faculty':'math','color':'pink','require_stream':'true'},
-    {'name':'Anthropology','faculty':'arts','color':'orange', 'require_stream':'false'}];
+    $http.get('/getPrograms')
+       .then(function(res){
+          $scope.test_programs = res.data;
+        //console.log(res.data);
+    });
     
+
     // process the form
     $scope.processForm = function() {
         $http({
             method  : 'POST',
             url     : '/postSubmit',
             data    : {my_program:$scope.my_info.name,
+                       my_faculty:$scope.my_info.faculty,
                        my_term:$scope.my_info.my_term,
                        my_stream:$scope.my_info.stream,
                        friend_program:$scope.friend_info.name,
+                       friend_faculty:$scope.friend_info.faculty,
                        friend_program:$scope.friend_info.my_term,
                        friend_program:$scope.friend_info.stream},
             headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  // set the headers so angular passing info as form data (not request payload)

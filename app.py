@@ -2,8 +2,8 @@ import json
 from flask import Flask,render_template, request
 import os
 import logic
-
-
+import programs as program_helper
+>>>>>>> origin/master
 app = Flask(__name__)
 programs = []
 import csv
@@ -13,7 +13,7 @@ def home():
     return render_template('index.html')
 @app.route("/getPrograms")
 def getPrograms():
-    response = json.dumps(programs, sort_keys=True,indent=4, separators=(',', ': '))
+    response = json.dumps(programs, sort_keys=True, indent=4, separators=(',', ': '))
     return response
 
 @app.route("/postSubmit", methods=['POST'])
@@ -35,17 +35,35 @@ def postSubmit():
                           sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
+def parseColor(param):
+    if param == "science":
+        return "blue"
+    elif param == "math":
+        return "violet"
+    elif param == "environment":
+        return "green"
+    elif param == "arts":
+        return "orange"
+    elif param == "engineering":
+        return "purple"
+    elif param == "health":
+        return "blue"
+    else:
+        return "black"
+
 @app.route("/postSuggestion", methods=['POST'])
 def postSuggestion():
     program = str(request.form['my_program'])
     faculty = str(request.form['my_stream'])
-    response = json.dumps({}, sort_keys=True,indent=4, separators=(',', ': '))
+    array = program_helper.suggestProgram(faculty,program)
+    response = json.dumps(array, sort_keys=True,indent=4, separators=(',', ': '))
     return response
 
 if __name__ == "__main__":
     f = open('programs.csv')
     csv_f = csv.reader(f)
     for row in csv_f:
-      programs.append({'program':row[0],'faculty':row[1],'require_stream':row[2]})
+      color = parseColor(row[1])
+      programs.append({'name':row[0],'faculty':row[1],'require_stream':row[2],'color':color})
     app.run(debug=True,host='localhost',port=int(os.environ.get("PORT", 5000)))
 

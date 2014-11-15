@@ -42,17 +42,17 @@ English - Literature and Rhetoric,arts,false
 English - Rhetoric and Professional Writing,arts,false
 Architecture,engineering,false
 Biomedical Engineering,engineering,false
-Chemical,engineering,true
-Civil,engineering,false
-Computer,engineering,true
-Electrical,engineering,true
-Management,engineering,false
-Mechanical,engineering,true
-Mechatronics,engineering,true
-Environmental,engineering,false
-Geological,engineering,false
-Systems Design,engineering,false
-Nanotechnology,engineering,false
+Chemical Engineering,engineering,true
+Civil Engineering,engineering,false
+Computer Engineering,engineering,true
+Electrical Engineering,engineering,true
+Management Engineering,engineering,false
+Mechanical Engineering,engineering,true
+Mechatronics Engineering,engineering,true
+Environmental Engineering,engineering,false
+Geological Engineering,engineering,false
+Systems Design Engineering,engineering,false
+Nanotechnology Engineering,engineering,false
 Software Engineering,vpadmin,false
 Environment and Business,environment,false
 Environment and Resource Studies,environment,false
