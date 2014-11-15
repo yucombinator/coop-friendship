@@ -59,7 +59,19 @@ app.config(function($interpolateProvider) {
           $scope.test_programs = res.data;
         //console.log(res.data);
     });
-    
+
+    $scope.onStream = function(result){
+        var on = 0;
+        var total = 0;
+
+        for (i = 0;  i < result.length; i++){
+            total++;
+            if (result[i]=="On Campus"){
+                on++;
+            }
+        }
+        return on/total*100;
+    };
     $scope.styleRow = function(result){
         if(result == "On Campus") return {'background-color':'#CFFF19'};
         else return {'background-color':'#FC913A'};
