@@ -62,14 +62,14 @@ app.config(function($interpolateProvider) {
         })
             .success(function(data) {
                 console.log(data);
-
+                $scope.results = data[1];
+                console.log($scope.results);
                 if (!data.success) {
                     // if not successful, bind errors to error variables
-                    $scope.errorName = data.errors.name;
-                    $scope.errorSuperhero = data.errors.superheroAlias;
+                   // console.log("Failed to fetch results");
                 } else {
                     // if successful, bind success message to message
-                    $scope.message = data.message;
+                  //  $scope.results = data;
                 }
             });
     };

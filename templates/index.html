@@ -85,6 +85,25 @@
             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
 
         </form>
+            <table class="proletariat">
+    <thead>
+        <tr>
+            <th>Term</th>
+            <th>You</th>
+            <th>Your friend</th>
+            <th>Result</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr ng-repeat="result in results.dates">
+            <td>{[{result}]}</td>
+            <td>{[{results.friend_array[$index]}]}</td>
+            <td>{[{results.my_array[$index]}]}</td>
+            <td>{[{results.result[$index]}]}</td>
+        </tr>
+    </tbody>
+</table>
         <div class="mastfoot">
             <div class="inner">
               <p>Made with love.</p>
