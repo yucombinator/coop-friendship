@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<html ng-app="CoopFriend">
+<head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href= "/static/styles.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="/static/script.js"></script>
+    <script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:800' rel='stylesheet' type='text/css'>
+    <title>About Us</title>
+</head>
+    
+<body ng-controller="MainCtrl">
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">WatAreFriends</h3>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <form id="form" role="form" class="inner cover">
+        <script type="text/ng-template" id="customTemplate.html">
+          <a style="color:{[{match.model.color}]}">
+              <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
+          </a>
+        </script> 
+      </form>
+      <div class = "aboutus">
+        <h1>About Us</h1>
+        <p>We're a group of three first year Software Engineering students at the University of Waterloo - Yu Chen Hou, Deon Hua, and Ruo Tai Sun.</p>
+        <h2>About... WatAreFriends</h2>
+        <p>At the University of Waterloo, time is scarce - you're always sleeping in lecture, rushing to the nearest CnD for your third cup of coffee,         or complaining about why your life is painful. We understand what you're going through. We also understand that, due to the lack of                   time, it's hard to find time for other things - especially friendships. That's why we made WatAreFriends.</p>
+        <p>WatAreFriends is designed to help you save time. By using this tool, you'll be able to figure out if you're on stream with people you meet,         so that you can figure out if a friendship will work. In fact, WatAreFriends has been proven to save you time daily*, giving you extra time           to work on those assignments you never manage to finish anyways.</p>
+        
+        <h2>The "Serious" Stuff</h2>
+        <p>WatAreFriends was originally concieved late in the night - yup, that's where we get our best ideas. Try it yourself sometime! We decided to            actually implement this idea, so we did it at the (first Annual) Treetu Hackathon in the Velocity Residence.</p>
+        <p>This project was built using AngularJS and Bootstrap for the front-end, with Python/Flask providing the back-end.</p>
+        <p>Our source code is available on <a href = "https://github.com/icechen1/coop-friendship">Github</a> in case you're interested!</p>
+        <br>
+        <p>*Not Really.**</p>
+        <p>**In fact, not at all.</p>
+      </div>
+    <div class="mastfoot">
+      <div class="inner">
+        <p>Made with love.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
