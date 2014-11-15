@@ -116,6 +116,7 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
+                $scope.error = null;
                 if(results == null){
                     //error?
                     $scope.error = "Something went wrong, check your values?";
