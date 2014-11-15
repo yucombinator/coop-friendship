@@ -262,7 +262,8 @@ td {
 }
 
 .aboutus{
-  text-align: left
+    text-align: left;
+    padding:5%;
 }
 .equal_row{
 	height:100%;
