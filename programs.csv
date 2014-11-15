@@ -1,0 +1,99 @@
+Heath Promotion,health,false
+Health Studies,health,false
+Kinesiology,health,false
+Recreation and Leisure Studies,health,false
+Accounting and Financial Management,arts,true
+Anthropology,arts,false
+Political Science,arts,false
+Psychology,arts,false
+Sociology,arts,false
+Arts and Business with Honours in: Anthropology,arts,false
+Classical Studies,arts,false
+Drama,arts,false
+Economics/Mathematical Economics,arts,false
+English,arts,false
+Fine Arts,arts,false
+French,arts,false
+German,arts,false
+History,arts,false
+Legal Studies,arts,false
+Medieval Studies,arts,false
+Music,arts,false
+Peace and Conflict Studies,arts,false
+Philosophy,arts,false
+Political Science,arts,false
+Psychology,arts,false
+Religious Studies,arts,false
+Russian and East European Studies,arts,false
+Sexuality,arts,false
+Marriage,arts,false
+and Family Studies,arts,false
+Social Development Studies,arts,false
+Sociology,arts,false
+Spanish,arts,false
+Speech Communication,arts,false
+Women's Studies,arts,false
+Arts and Business: Digital Arts Communication Specialization,arts,false
+Arts and Business: International Trade Specialization,arts,false
+Computing and Financial Management,vpadmin,false
+Economics,arts,false
+English - Literature,arts,false
+English - Literature and Rhetoric,arts,false
+English - Rhetoric and Professional Writing,arts,false
+Architecture,engineering,false
+Biomedical Engineering,engineering,false
+Chemical,engineering,true
+Civil,engineering,false
+Computer,engineering,true
+Electrical,engineering,true
+Management,engineering,false
+Mechanical,engineering,true
+Mechatronics,engineering,true
+Environmental,engineering,false
+Geological,engineering,false
+Systems Design,engineering,false
+Nanotechnology,engineering,false
+Software Engineering,vpadmin,false
+Environment and Business,environment,false
+Environment and Resource Studies,environment,false
+Geography and Environmental Management,environment,false
+Geomatics,environment,false
+Planning,environment,false
+Actuarial Science,math,true
+Applied Mathematics,math,true
+Combinatorics & Optimization,math,true
+Computational Mathematics,math,true
+Computer Science,math,true
+Information Technology Management,math,true
+Mathematical Economics,math,true
+Mathematical Finance,math,true
+Mathematical Optimization,math,true
+Mathematical Studies,math,true
+Mathematics/Business Administration,math,true
+Mathematics/Financial Analysis and Risk Management,math,true
+Pure Mathematics,math,true
+Scientific Computation/Applied Mathematics,math,true
+Statistics,math,true
+Statistics for Health,math,true
+Bioinformatics,math,false
+Business Administration and Computer Science,math,false
+Business Administration and Mathematics,math,false
+Mathematics/Chartered Professional Accountancy,math,true
+Mathematics/Teaching,math,false
+Mathematical Physics,math,false
+Biochemistry,science,false
+Biology,science,false
+Biotechnology/Economics,science,false
+Chemistry,science,false
+Earth Sciences,science,false
+Environmental Science,science,false
+Medicinal Chemistry,science,false
+Science and Business,science,false
+Biotechnology/Chartered Professional Accountancy,science,false
+Materials and Nanosciences,science,false
+Physics,science,false,science,false
+Mathematical Physics,science,false
+Life Physics,science,false
+Physics and Astronomy,science,false
+Psychology,science,false
+Pharmacy,science,false
