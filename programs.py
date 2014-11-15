@@ -1,5 +1,19 @@
 import data
 
+def detFaculty(faculty):
+    if faculty == "health":
+        return data.AHS
+    elif faculty == "engineering":
+        return data.ENG
+    elif faculty == "science":
+        return data.SCI
+    elif faculty == "math":
+        return data.MATH
+    elif faculty == "arts":
+        return data.ARTS
+    else:
+        return data.ENV
+
 def mathProgram(program, stream = None):
     if program == 'Bioinformatics':
         return 'BIO'
@@ -41,19 +55,7 @@ def mathProgram(program, stream = None):
         else :
             return '4'
 
-def detFaculty(faculty):
-    if faculty == "health":
-        return data.AHS
-    elif faculty == "engineering":
-        return data.ENG
-    elif faculty == "science":
-        return data.SCI
-    elif faculty == "math":
-        return data.MATH
-    elif faculty == "arts":
-        return data.ARTS
-    else:
-        return data.ENV
+
 
 
 def ahsProgram(program):
@@ -68,7 +70,12 @@ def ahsProgram(program):
 
 def artsProgram(program, stream=None):
     if program == "Accounting and Financial Management":
-        return ("AFM" + stream)
+        if stream == "Sequence 1":
+            return "AFM1"
+        elif stream == "Sequence 2":
+            return "AFM2"
+        else:
+            return "AFM3"
     elif program == "Anthropology" or program == "Political Science" or program == "Psychology" or program == "Sociology":
         return "ANTHRO"
     elif program == "Arts and Business with Digital Arts Communication Specialization":
@@ -150,9 +157,6 @@ def findProgram(facultyString, programString, stream=None):
 
     return faculty[program]
 
-def suggestEng(programString):
-    programs = ["Chemical Engineering", "Computer Engineering", "Electrical Engineering", "Environmental Engineering",
-                "Mechanical Engineering", "Mechatronics Engineering"]
 
 def suggestMath(programString):
     if programString == "Mathematics/Chartered Professional Accountancy" \

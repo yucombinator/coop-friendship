@@ -31,8 +31,8 @@ def postSubmit():
     friend_term = post.get('friend_term')
     friend_faculty = post.get('friend_faculty')
 
-    dict = logic.takeInput(my_faculty, my_program, my_term,friend_faculty,
-                           friend_program, friend_term,my_stream,friend_stream)
+    dict = logic.takeInput(my_faculty, my_program, my_term, friend_faculty,
+                           friend_program, friend_term, my_stream, friend_stream)
     app.logger.debug(dict)
 
     response = json.dumps(['response',{'dates':dict["terms"],
