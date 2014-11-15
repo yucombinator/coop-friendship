@@ -45,7 +45,7 @@ def comparePrograms(array1, array2, term1="1A", term2="1A"):
         else:
             results.append("Mismatch")
 
-    #PAD "NO MATCH" to the end.
+    #PAD "Mismatch" to the end.
     padding = abs(len(array1)-len(array2))
     for index in range(padding):
         results.append("Mismatch")
