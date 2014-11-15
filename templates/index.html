@@ -29,7 +29,7 @@
         </div>
       </div>
       <div class="table_content card" ng-show="results != null">
-        <h3 ng-style = "onStream(results.result)">{[{onStream(results.result)}]}</h3>
+        <h3 ng-if="results!=null">{[{onStream(results.result)}]}</h3>
         <table class="proletariat table table-hover">
           <thead>
             <tr>
