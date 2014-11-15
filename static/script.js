@@ -18,6 +18,8 @@ app.config(function($interpolateProvider) {
     });
   }; */
     $scope.test_programs = [];
+    $scope.my_info = [];
+    $scope.friend_info = [];
     $scope.getStreamSuggestion = function(model){
             $http({
             url: '/postSuggestion',
@@ -56,7 +58,7 @@ app.config(function($interpolateProvider) {
     };   
     $http.get('/getPrograms')
        .then(function(res){
-          $scope.test_programs = res.data;
+          $scope.programs_list = res.data;
         //console.log(res.data);
     });
     
