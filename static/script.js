@@ -64,13 +64,8 @@ app.config(function($interpolateProvider) {
                 console.log(data);
                 $scope.results = data[1];
                 console.log($scope.results);
-                if (!data.success) {
-                    // if not successful, bind errors to error variables
-                   // console.log("Failed to fetch results");
-                } else {
-                    // if successful, bind success message to message
-                  //  $scope.results = data;
-                }
+				
+                
             });
     };
 });

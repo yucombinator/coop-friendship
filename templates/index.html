@@ -1,119 +1,111 @@
 <!DOCTYPE html>
 <html ng-app="CoopFriend">
 <head>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href= "/static/ruo.css">
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
-    <script src="/static/script.js"></script>
-    <script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
-
-
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href= "/static/styles.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+<script src="/static/script.js"></script>
+<script src="/static/ui-bootstrap-tpls-0.11.2.min.js"></script>
 </head>
 
 <body ng-controller="MainCtrl">
-    <div class="site-wrapper">
-
-      <div class="site-wrapper-inner">
-
-        <div class="cover-container">
-          <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">Cover</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">Home</a></li>
-                  <li><a href="#">Features</a></li>
-                  <li><a href="#">Contact</a></li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        <form id="form" role="form" class="inner cover">
+<div class="site-wrapper">
+  <div class="site-wrapper-inner">
+    <div class="cover-container">
+      <div class="masthead clearfix">
+        <div class="inner">
+          <h3 class="masthead-brand">Cover</h3>
+          <nav>
+            <ul class="nav masthead-nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#">Features</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <form id="form" role="form" class="inner cover">
         <script type="text/ng-template" id="customTemplate.html">
           <a style="color:{[{match.model.color}]}">
               <span bind-html-unsafe="match.label | typeaheadHighlight:query"></span>
           </a>
-        </script>
-
-            <!-- Me -->
-            <div class="row content">
-              <div class="row row_mine">
-                <div class="col-md-12 mine_program">
-                    <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
-                </div>
-                <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
-                    <input type="text" ng-model="my_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(my_info)" list="mystreams">
-                    <datalist id="mystreams">
-                      <option value="{[{stream}]}" ng-repeat="stream in my_info.stream_choices">
-                    </datalist>
-                </div>
-                <div class="col-md-12 mine_term">
-                    <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control">
-                </div>
-              </div>
-            <!-- Friend -->
-              <div class="row row_friend">
-                <div class="col-md-12 your_program">
-                    <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
-                </div>
-                <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
-                    <input type="text" ng-model="friend_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(friend_info)" list="fstreams">
-                    <datalist id="fstreams">
-                      <option value="{[{stream}]}" ng-repeat="stream in friend_info.stream_choices">
-                    </datalist>
-                </div>
-                <div class="col-md-12 your_term">
-                    <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" >
-
-              </div>
-              </div>
-
-                <!-- Submit -->
-              <div class="row submit_row">
-                <div class="col-md-12">
-                    <button type="button" class="btn btn-primary submit" ng-click="processForm()">
-                        Can we be friends?
-                    </button>
-                </div>
-              </div>
-              </div>
-            <pre class="result">Me: {[{my_info | json}]}</pre>
+        </script> 
+        
+        <!-- Me -->
+        <div class="row content">
+          <div class="row row_mine">
+            <div class="col-md-12 mine_program">
+              <input type="text" ng-model="my_info" placeholder="Type your program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control program">
+            </div>
+            <div class="col-md-12 mine_stream" ng-show="my_info.require_stream">
+              <input type="text" ng-model="my_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(my_info)" list="mystreams">
+              <datalist id="mystreams">
+                <option value="{[{stream}]}" ng-repeat="stream in my_info.stream_choices"> 
+              </datalist>
+            </div>
+            <div class="col-md-12 mine_term">
+              <input type="text" ng-model="my_info.term" placeholder="Current term (eg. 1A)" class="form-control">
+            </div>
+          </div>
+          <!-- Friend -->
+          <div class="row row_friend">
+            <div class="col-md-12 your_program">
+              <input type="text" ng-model="friend_info" placeholder="Type program here" typeahead="state as state.name for state in test_programs | filter:{name:$viewValue} | limitTo:16" typeahead-template-url="customTemplate.html" class="form-control">
+            </div>
+            <div class="col-md-12 your_stream" ng-show="friend_info.require_stream">
+              <input type="text" ng-model="friend_info.stream" placeholder="Type sequence/stream number here"class="form-control" ng-click="getStreamSuggestion(friend_info)" list="fstreams">
+              <datalist id="fstreams">
+                <option value="{[{stream}]}" ng-repeat="stream in friend_info.stream_choices"> 
+              </datalist>
+            </div>
+            <div class="col-md-12 your_term">
+              <input type="text" ng-model="friend_info.term" placeholder="Current term (eg. 1A)" class="form-control" >
+            </div>
+          </div>
+          
+          <!-- Submit -->
+          <div class="row submit_row">
+            <div class="col-md-12">
+              <button type="button" class="btn btn-primary submit" ng-click="processForm()"> Can we be friends? </button>
+            </div>
+          </div>
+        </div>
+        <!--<pre class="result">Me: {[{my_info | json}]}</pre>
             <pre class="result">Friend: {[{friend_info | json}]}</pre>
-            <!--
             <h4>Asynchronous results</h4>
             <pre>Model: {[{asyncSelected | json}]}</pre>
             <pre>Model: {[{asyncSelected | json}]}</pre>
             <input type="text" ng-model="asyncSelected" placeholder="Locations loaded via $http" typeahead="address for address in getLocation($viewValue)" typeahead-loading="loadingLocations" class="form-control">
             <i ng-show="loadingLocations" class="glyphicon glyphicon-refresh"></i> -->
-
-        </form>
-            <table class="proletariat">
-    <thead>
-        <tr>
+        <div class="table_content">
+      </form>
+      <table class="proletariat">
+        <thead>
+          <tr>
             <th>Term</th>
             <th>You</th>
             <th>Your friend</th>
             <th>Result</th>
-        </tr>
-    </thead>
-
-    <tbody>
-        <tr ng-repeat="result in results.dates">
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="result in results.dates">
             <td>{[{result}]}</td>
             <td>{[{results.my_array[$index]}]}</td>
             <td>{[{results.friend_array[$index]}]}</td>
             <td>{[{results.result[$index]}]}</td>
-        </tr>
-    </tbody>
-</table>
-        <div class="mastfoot">
-            <div class="inner">
-              <p>Made with love.</p>
-            </div>
-        </div>
-        </div>
+          </tr>
+        </tbody>
+      </table>
     </div>
+    <div class="mastfoot">
+      <div class="inner">
+        <p>Made with love.</p>
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 </body>
 </html>
