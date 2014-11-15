@@ -11,5 +11,13 @@ def hello_world():
 def nye_world():
     return 'Bye World!'
 
+@app.route('/test/inner')
+def inner():
+    return "You've reached the inside."
+
+@app.route('/test/inner2')
+def inner2():
+    return "The second inside."
+
 if __name__ == '__main__':
     app.run(debug=True)
