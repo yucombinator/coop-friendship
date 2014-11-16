@@ -176,7 +176,7 @@ def suggestProgram(facultyString, programString):
     elif faculty == data.MATH:
         return suggestMath(programString)
 
-def returnTerms(facultyString, programString):
+def returnTerms(facultyString, programString, stream = None):
     faculty = detFaculty(facultyString)
-    program = findProgram(facultyString, programString)
+    program = findProgram(facultyString, programString, stream)
     return program

@@ -75,7 +75,7 @@
                 </datalist>
               </div>
               <div class="col-md-12 mine_term">
-                <input type="text" id="mterm" ng-model="mterm" placeholder="Current term (eg. 1A)" class="form-control" ng-focus="getTermsSuggestion(my_info,stream)" list="mterms">
+                <input type="text" id="mterm" ng-model="mterm" placeholder="Current term (eg. 1A)" class="form-control" ng-focus="getTermsSuggestion(my_info,mstream)" list="mterms">
                 <datalist id="mterms">
                 <option value="{[{mterm}]}" ng-repeat="mterm in my_info.terms_choices">
                 </datalist>
