@@ -37,11 +37,12 @@ app.config(function($interpolateProvider) {
             }
         );
     };
-    $scope.getTermsSuggestion = function(model){
+    $scope.getTermsSuggestion = function(model, stream){
             $http({
             url: '/postTerms',
             method: "POST",
             data: JSON.stringify({ 'program' : model.name,
+                    'stream' : stream,
                     'faculty' : model.faculty}),
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as json
         })
