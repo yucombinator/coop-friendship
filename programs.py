@@ -92,8 +92,8 @@ def artsProgram(program, stream=None):
     else:
         return "GEN"
 
-def engProgram(program, stream = None):
-    if program == "Architecture Engineering":
+def engProgram(program, stream):
+    if program == "Architecture":
         return "ARCH"
     elif program == "Biomedical Engineering":
         return "BIOMED"
@@ -176,7 +176,7 @@ def suggestProgram(facultyString, programString):
     elif faculty == data.MATH:
         return suggestMath(programString)
 
-def returnTerms(facultyString, programString):
+def returnTerms(facultyString, programString, stream = None):
     faculty = detFaculty(facultyString)
-    program = findProgram(facultyString, programString)
+    program = findProgram(facultyString, programString, stream)
     return program

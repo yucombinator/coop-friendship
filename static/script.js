@@ -42,7 +42,8 @@ app.config(function($interpolateProvider) {
             url: '/postTerms',
             method: "POST",
             data: JSON.stringify({ 'program' : model.name,
-                    'faculty' : model.faculty}),
+                    'faculty' : model.faculty,
+                    'stream' :model.stream}),
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as json
         })
         .then(function(response) {
@@ -52,6 +53,7 @@ app.config(function($interpolateProvider) {
             function(response) { // optional
                 // failed
                 console.log("Failed to fetch terms choices");
+                $scope.error = "Term Error";
             }
         );
     };   
@@ -75,11 +77,16 @@ app.config(function($interpolateProvider) {
         percentage = on/total*100;
         percentage = Math.round(percentage);
         random = Math.floor((Math.random() * 100) + 1);
-        if (percentage < 10){
+        if (percentage == 0){
+            if (random %2 == 0)
+                return "Were you even serious? - 0%. Zero percent. Let me say that again. ZERO PERCENT. What were you thinking?";
+            else
+                return "Are you sure you two aren't roommates?";
+        }
+        else if (percentage < 10){
             return "Sorry partner. Looks like you'll have to find someone else - " + String(percentage) + "% of the time won't cut it.";
         }
-        
-        if (percentage < 30){
+        else if (percentage < 30){
             if(random%2 == 0)
                 return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
             else
