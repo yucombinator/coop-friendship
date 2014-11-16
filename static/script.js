@@ -37,13 +37,13 @@ app.config(function($interpolateProvider) {
             }
         );
     };
-    $scope.getTermsSuggestion = function(model){
+    $scope.getTermsSuggestion = function(model, stream){
             $http({
             url: '/postTerms',
             method: "POST",
             data: JSON.stringify({ 'program' : model.name,
-                    'faculty' : model.faculty,
-                    'stream' :model.stream}),
+                    'stream' : stream,
+                    'faculty' : model.faculty}),
             headers : { 'Content-Type': 'application/json' }  // set the headers so angular passing info as json
         })
         .then(function(response) {
@@ -88,9 +88,9 @@ app.config(function($interpolateProvider) {
         }
         else if (percentage < 30){
             if(random%2 == 0)
-                return "Fat chance. You're only on stream " + String(percentage) + "% of the time anyways.";
+                return "Fat chance. You can only sublet " + String(percentage) + "% of the time anyways.";
             else
-                return "It's not you. It's me. You're only on stream " + String(percentage) + "% of the time.";
+                return "It's not you. It's me. You can only sublet " + String(percentage) + "% of the time.";
         }
         else if (percentage >= 70){
             if(random%2 == 0)
