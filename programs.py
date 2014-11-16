@@ -93,7 +93,7 @@ def artsProgram(program, stream=None):
         return "GEN"
 
 def engProgram(program, stream = None):
-    if program == "Architecture Engineering":
+    if program == "Architecture":
         return "ARCH"
     elif program == "Biomedical Engineering":
         return "BIOMED"
