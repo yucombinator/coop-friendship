@@ -21,7 +21,6 @@ Medieval Studies,arts,false
 Music,arts,false
 Peace and Conflict Studies,arts,false
 Philosophy,arts,false
-Political Science,arts,false
 Religious Studies,arts,false
 Russian and East European Studies,arts,false
 Sexuality,arts,false
@@ -65,6 +64,7 @@ Computer Science,math,true
 Information Technology Management,math,true
 Mathematical Economics,math,true
 Mathematical Finance,math,true
+Honours Math,math,true
 Mathematical Optimization,math,true
 Mathematical Studies,math,true
 Mathematics/Business Administration,math,true
